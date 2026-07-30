@@ -302,30 +302,34 @@
         </div>
     </section>
 
-    <!-- ================= CHATBOT WIDGET ================= -->
+<!-- ================= CHATBOT (INTEGRAÇÃO UDIFY) ================= -->
     <div class="fixed bottom-6 right-6 z-50">
-        <div id="chatWindow" class="hidden w-80 md:w-96 bg-slate-900 border border-white/20 rounded-2xl shadow-2xl overflow-hidden mb-4 transition-all">
-            <div class="bg-red-600 px-6 py-4 flex justify-between items-center font-bold">
-                <div class="flex items-center gap-2">
+        <!-- Janela do Chat (Escondida por padrão) -->
+        <div id="chatWindow" class="hidden w-80 md:w-96 bg-red-600 border border-white/20 rounded-2xl shadow-2xl overflow-hidden mb-4 transition-all">
+            <!-- Cabeçalho do Chat -->
+            <!-- <div class="bg-red-600 px-6 py-4 flex justify-between items-center font-bold">
+                <div class="flex items-center gap-2 text-white">
                     <i class="fa-solid fa-robot"></i>
                     <span>StartTourBot</span>
                 </div>
-                <button id="closeChat" class="text-white hover:text-gray-200"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div id="chatBody" class="p-4 h-80 overflow-y-auto space-y-3 text-sm">
-                <div class="bg-white/10 p-3 rounded-xl max-w-[85%]">
-                    Olá! Como posso ajudar você a planejar sua viagem ao Japão hoje?
-                </div>
-            </div>
-            <div class="p-3 border-t border-white/10 flex gap-2 bg-black/40">
-                <input id="chatInput" type="text" placeholder="Digite sua mensagem..." class="flex-grow bg-slate-800 border border-white/10 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-red-500">
-                <button id="sendMessage" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-xl text-sm font-semibold transition">
-                    Enviar
+                <button id="closeChat" class="text-white hover:text-gray-200 transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
+            </div> -->
+
+            <!-- Corpo do Chat com iframe do Udify -->
+            <div id="chatBody" class="w-full bg-red-600">
+                <iframe
+                    src="https://udify.app/chatbot/PRqDgu6MuKksEuB0"
+                    style="width: 100%; height: 500px;"
+                    frameborder="0"
+                    allow="microphone">
+                </iframe>
             </div>
         </div>
 
-        <button id="toggleChat" class="bg-red-600 hover:bg-red-700 text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110 ml-auto">
+        <!-- Botão Flutuante para Abrir/Fechar -->
+        <button id="toggleChat" class="bg-red-600 hover:bg-red-700 text-white p-4 rounded-full shadow-lg shadow-red-600/30 flex items-center justify-center transition-transform hover:scale-110 ml-auto">
             <i class="fa-solid fa-comments text-2xl"></i>
         </button>
     </div>
