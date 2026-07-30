@@ -282,18 +282,25 @@ topButton.addEventListener("click", () => {
 });
 
 // ======================
-// Tilt 3D nos cards
+// Mobile menu toggle
 // ======================
 
-document.querySelectorAll(".glass").forEach(card => {
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
 
-    card.addEventListener("mousemove", (e) => {
+if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
 
-        const rect = card.getBoundingClientRect();
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+}
 
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
+// ======================
         const rotateX = -(y - rect.height / 2) / 20;
         const rotateY = (x - rect.width / 2) / 20;
 

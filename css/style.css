@@ -472,3 +472,37 @@ textarea:focus {
     }
 
 }
+
+@media (max-width: 768px) {
+
+    nav .max-w-7xl {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    #mobileMenu {
+        display: none;
+    }
+
+    #mobileMenu:not(.hidden) {
+        display: block;
+    }
+
+    #mobileMenu a {
+        display: block;
+        width: 100%;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 15px;
+    }
+
+    .grid.md\:grid-cols-3,
+    .grid.md\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+}

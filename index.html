@@ -45,17 +45,37 @@
                 </h1>
             </a>
 
-            <ul class="hidden md:flex gap-8 text-lg">
-                <li><a href="#" class="hover:text-red-500 transition">Início</a></li>
-                <li><a href="#destinos" class="hover:text-red-500 transition">Destinos</a></li>
-                <li><a href="#catalogo" class="hover:text-red-500 transition">Catálogo</a></li>
-                <li><a href="#sobre" class="hover:text-red-500 transition">Sobre</a></li>
-                <li><a href="#contato" class="hover:text-red-500 transition">Contato</a></li>
-            </ul>
+            <div class="flex items-center gap-4">
+                <button id="menuToggle" class="md:hidden text-white p-3 rounded-2xl border border-white/10 hover:bg-white/10 transition"
+                    aria-label="Abrir menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
 
-            <a href="#catalogo" class="bg-red-600 px-6 py-3 rounded-full hover:bg-red-700 hover:scale-105 transition font-semibold">
+                <ul class="hidden md:flex gap-8 text-lg">
+                    <li><a href="#" class="hover:text-red-500 transition">Início</a></li>
+                    <li><a href="#destinos" class="hover:text-red-500 transition">Destinos</a></li>
+                    <li><a href="#catalogo" class="hover:text-red-500 transition">Catálogo</a></li>
+                    <li><a href="#sobre" class="hover:text-red-500 transition">Sobre</a></li>
+                    <li><a href="#contato" class="hover:text-red-500 transition">Contato</a></li>
+                </ul>
+            </div>
+
+            <a href="#catalogo" class="hidden md:inline-flex bg-red-600 px-6 py-3 rounded-full hover:bg-red-700 hover:scale-105 transition font-semibold">
                 Reservar
             </a>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden border-t border-white/10 bg-black/95 backdrop-blur-xl">
+            <div class="max-w-7xl mx-auto px-8 py-5 flex flex-col gap-4">
+                <a href="#" class="text-lg text-white hover:text-red-500 transition">Início</a>
+                <a href="#destinos" class="text-lg text-white hover:text-red-500 transition">Destinos</a>
+                <a href="#catalogo" class="text-lg text-white hover:text-red-500 transition">Catálogo</a>
+                <a href="#sobre" class="text-lg text-white hover:text-red-500 transition">Sobre</a>
+                <a href="#contato" class="text-lg text-white hover:text-red-500 transition">Contato</a>
+                <a href="#catalogo" class="bg-red-600 px-6 py-3 rounded-full hover:bg-red-700 transition font-semibold text-center">
+                    Reservar
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -71,11 +91,11 @@
                 Sua próxima aventura começa aqui
             </span>
 
-            <h2 data-aos="fade-up" class="text-6xl md:text-8xl font-extrabold my-6 leading-tight">
+            <h2 data-aos="fade-up" class="text-4xl md:text-6xl lg:text-8xl font-extrabold my-6 leading-tight">
                 Descubra o <span class="text-red-500">Japão</span> Como Nunca Antes
             </h2>
 
-            <p data-aos="fade-up" data-aos-delay="300" class="text-xl md:text-2xl text-gray-200 leading-relaxed">
+            <p data-aos="fade-up" data-aos-delay="300" class="text-base md:text-xl text-gray-200 leading-relaxed">
                 Viaje pelos lugares mais incríveis do Japão com conforto, segurança e experiências inesquecíveis.
             </p>
 
@@ -93,7 +113,7 @@
     <!-- ================= DESTINOS ================= -->
     <section id="destinos" class="py-24 relative z-10">
         <div class="max-w-7xl mx-auto px-8">
-            <h2 data-aos="fade-up" class="text-center text-5xl font-bold mb-16">
+            <h2 data-aos="fade-up" class="text-center text-4xl md:text-5xl font-bold mb-16">
                 Destinos em Destaque
             </h2>
 
@@ -161,8 +181,8 @@
     <section id="catalogo" class="py-24 relative z-10 bg-slate-900/50">
         <div class="max-w-7xl mx-auto px-8">
             <div class="text-center mb-16">
-                <h2 data-aos="fade-up" class="text-5xl font-bold mb-6">Catálogo de Pacotes</h2>
-                <p data-aos="fade-up" data-aos-delay="100" class="text-gray-300 max-w-3xl mx-auto text-lg">
+                <h2 data-aos="fade-up" class="text-4xl md:text-5xl font-bold mb-6">Catálogo de Pacotes</h2>
+                <p data-aos="fade-up" data-aos-delay="100" class="text-gray-300 max-w-3xl mx-auto text-base md:text-lg">
                     Confira nossos pacotes exclusivos com acompanhamento, traslados e itinerários sob medida para o seu perfil.
                 </p>
             </div>
@@ -233,8 +253,8 @@
     <section id="sobre" class="py-24 relative z-10">
         <div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right">
-                <h2 class="text-5xl font-bold mb-6">Sobre a StartTour</h2>
-                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Sobre a StartTour</h2>
+                <p class="text-gray-300 text-base md:text-lg leading-relaxed mb-6">
                     A StartTour é uma agência boutique especializada em criar viagens inesquecíveis para o Japão. Combinamos itinerários personalizados, suporte local contínuo e roteiros exclusivos que vão muito além do turismo convencional.
                 </p>
                 <p class="text-gray-300 text-lg leading-relaxed">
