@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Takumi Tour | Descubra o Japão</title>
+
+    <meta name="description"
+        content="Viaje pelos lugares mais incríveis do Japão com a StartTour. Pacotes exclusivos para Tóquio, Shibuya, Monte Fuji, Hokkaido e muito mais.">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body class="bg-slate-950 text-white overflow-x-hidden font-['Poppins']">
+
+    <!-- ================= PARTICLES ================= -->
+    <div id="particles-js" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/30 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-5">
+            <a href="index.html" class="flex items-center gap-3">
+                <i class="fa-solid fa-torii-gate text-red-500 text-3xl"></i>
+                <h1 class="font-bold text-3xl tracking-widest">
+                    Start<span class="text-red-500">Tour</span>
+                </h1>
+            </a>
+
+            <ul class="hidden md:flex gap-8 text-lg">
+                <li><a href="#" class="hover:text-red-500 transition">Início</a></li>
+                <li><a href="#destinos" class="hover:text-red-500 transition">Destinos</a></li>
+                <li><a href="#catalogo" class="hover:text-red-500 transition">Catálogo</a></li>
+                <li><a href="#sobre" class="hover:text-red-500 transition">Sobre</a></li>
+                <li><a href="#contato" class="hover:text-red-500 transition">Contato</a></li>
+            </ul>
+
+            <a href="#catalogo" class="bg-red-600 px-6 py-3 rounded-full hover:bg-red-700 hover:scale-105 transition font-semibold">
+                Reservar
+            </a>
+        </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=2000&q=80"
+            alt="Japão Mount Fuji" class="absolute inset-0 w-full h-full object-cover brightness-50">
+
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-slate-950"></div>
+
+        <div class="relative z-20 text-center px-5 max-w-5xl">
+            <span data-aos="fade-down" class="uppercase tracking-[6px] text-red-400 text-sm font-semibold">
+                Sua próxima aventura começa aqui
+            </span>
+
+            <h2 data-aos="fade-up" class="text-6xl md:text-8xl font-extrabold my-6 leading-tight">
+                Descubra o <span class="text-red-500">Japão</span> Como Nunca Antes
+            </h2>
+
+            <p data-aos="fade-up" data-aos-delay="300" class="text-xl md:text-2xl text-gray-200 leading-relaxed">
+                Viaje pelos lugares mais incríveis do Japão com conforto, segurança e experiências inesquecíveis.
+            </p>
+
+            <div data-aos="zoom-in" data-aos-delay="600" class="mt-12 flex flex-wrap justify-center gap-5">
+                <a href="#catalogo" class="bg-red-600 hover:bg-red-700 px-8 py-4 rounded-full font-bold text-lg transition inline-block">
+                    Ver Pacotes
+                </a>
+                <a href="#destinos" class="border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition inline-block font-semibold">
+                    Explorar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= DESTINOS ================= -->
+    <section id="destinos" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-8">
+            <h2 data-aos="fade-up" class="text-center text-5xl font-bold mb-16">
+                Destinos em Destaque
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- TÓQUIO -->
+                <div data-aos="fade-up" class="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:-translate-y-4 transition duration-500 flex flex-col justify-between">
+                    <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=900&q=80" alt="Tóquio" class="h-64 w-full object-cover">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Tóquio</h3>
+                            <p class="text-gray-300 text-sm mb-6">A capital japonesa mistura tradição, tecnologia e vida noturna vibrante.</p>
+                        </div>
+                        <a href="tokyo.html" class="bg-red-600 hover:bg-red-700 text-center py-3 rounded-full font-semibold transition">
+                            Saiba Mais
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SHIBUYA -->
+                <div data-aos="fade-up" data-aos-delay="100" class="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:-translate-y-4 transition duration-500 flex flex-col justify-between">
+                    <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=900&q=80" alt="Shibuya" class="h-64 w-full object-cover">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Shibuya</h3>
+                            <p class="text-gray-300 text-sm mb-6">O cruzamento mais famoso do mundo, néons, moda e entretenimento constante.</p>
+                        </div>
+                        <a href="#" class="bg-red-600 hover:bg-red-700 text-center py-3 rounded-full font-semibold transition">
+                            Explorar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MONTE FUJI -->
+                <div data-aos="fade-up" data-aos-delay="200" class="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:-translate-y-4 transition duration-500 flex flex-col justify-between">
+                    <img src="https://images.unsplash.com/photo-1570459027562-4a916cc6113f?auto=format&fit=crop&w=900&q=80" alt="Monte Fuji" class="h-64 w-full object-cover">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Monte Fuji</h3>
+                            <p class="text-gray-300 text-sm mb-6">O cartão-postal mais icônico do Japão, cercado por lagos e paisagens de tirar o fôlego.</p>
+                        </div>
+                        <a href="#" class="bg-red-600 hover:bg-red-700 text-center py-3 rounded-full font-semibold transition">
+                            Visitar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- HOKKAIDO -->
+                <div data-aos="fade-up" data-aos-delay="300" class="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:-translate-y-4 transition duration-500 flex flex-col justify-between">
+                    <img src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=900&q=80" alt="Hokkaido" class="h-64 w-full object-cover">
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Hokkaido</h3>
+                            <p class="text-gray-300 text-sm mb-6">Neve de alta qualidade, estações de esqui lendárias, gastronomia e paisagens alpinas.</p>
+                        </div>
+                        <a href="hokkaido.html" class="bg-red-600 hover:bg-red-700 text-center py-3 rounded-full font-semibold transition">
+                            Descobrir
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CATÁLOGO ================= -->
+    <section id="catalogo" class="py-24 relative z-10 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-16">
+                <h2 data-aos="fade-up" class="text-5xl font-bold mb-6">Catálogo de Pacotes</h2>
+                <p data-aos="fade-up" data-aos-delay="100" class="text-gray-300 max-w-3xl mx-auto text-lg">
+                    Confira nossos pacotes exclusivos com acompanhamento, traslados e itinerários sob medida para o seu perfil.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Pacote 1 -->
+                <div data-aos="fade-up" class="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col justify-between hover:border-red-500/50 transition">
+                    <div>
+                        <span class="text-xs uppercase font-bold tracking-wider text-red-400 bg-red-950/60 px-3 py-1 rounded-full border border-red-500/30">Clássico</span>
+                        <h3 class="text-2xl font-bold mt-4">Japão Imperial</h3>
+                        <p class="text-gray-400 mt-2 text-sm">10 Dias • Tóquio, Quioto e Nara</p>
+                        <ul class="my-6 space-y-3 text-sm text-gray-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-500"></i> Passagens e Hotel 4★</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-500"></i> JR Pass de 7 dias incluso</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-500"></i> Guia em Português</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400">A partir de</p>
+                        <p class="text-3xl font-bold text-red-500 my-2">R$ 18.900</p>
+                        <a href="#contato" class="block text-center bg-red-600 hover:bg-red-700 py-3 rounded-full font-semibold transition">Reservar Pacote</a>
+                    </div>
+                </div>
+
+                <!-- Pacote 2 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="backdrop-blur-md bg-white/5 border border-red-500/50 rounded-3xl p-8 flex flex-col justify-between relative">
+                    <div class="absolute -top-3 right-6 bg-red-600 text-xs font-bold uppercase px-3 py-1 rounded-full">Mais Vendido</div>
+                    <div>
+                        <span class="text-xs uppercase font-bold tracking-wider text-red-400 bg-red-950/60 px-3 py-1 rounded-full border border-red-500/30">Aventura & Neve</span>
+                        <h3 class="text-2xl font-bold mt-4">Hokkaido Ski & Onsen</h3>
+                        <p class="text-gray-400 mt-2 text-sm">8 Dias • Sapporo, Otaru e Niseko</p>
+                        <ul class="my-6 space-y-3 text-sm text-gray-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-500"></i> Hospedagem em Resort com Onsen</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-500"></i> Passe de Esqui em Niseko</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-500"></i> Tour Gastronômico</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400">A partir de</p>
+                        <p class="text-3xl font-bold text-red-500 my-2">R$ 15.490</p>
+                        <a href="#contato" class="block text-center bg-red-600 hover:bg-red-700 py-3 rounded-full font-semibold transition">Reservar Pacote</a>
+                    </div>
+                </div>
+
+                <!-- Pacote 3 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col justify-between hover:border-red-500/50 transition">
+                    <div>
+                        <span class="text-xs uppercase font-bold tracking-wider text-red-400 bg-red-950/60 px-3 py-1 rounded-full border border-red-500/30">Completo</span>
+                        <h3 class="text-2xl font-bold mt-4">Grande Turnê Japão</h3>
+                        <p class="text-gray-400 mt-2 text-sm">15 Dias • De Tóquio a Hiroshima</p>
+                        <ul class="my-6 space-y-3 text-sm text-gray-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-500"></i> 6 Cidades Principais</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-500"></i> Experiência em Ryokan (Hospedagem Tradicional)</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-red-500"></i> Entradas em Templos e Parques inclusas</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400">A partir de</p>
+                        <p class="text-3xl font-bold text-red-500 my-2">R$ 27.800</p>
+                        <a href="#contato" class="block text-center bg-red-600 hover:bg-red-700 py-3 rounded-full font-semibold transition">Reservar Pacote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SOBRE ================= -->
+    <section id="sobre" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-5xl font-bold mb-6">Sobre a StartTour</h2>
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                    A StartTour é uma agência boutique especializada em criar viagens inesquecíveis para o Japão. Combinamos itinerários personalizados, suporte local contínuo e roteiros exclusivos que vão muito além do turismo convencional.
+                </p>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    Nossa missão é garantir que você vivencie a essência da cultura japonesa com total conforto, segurança e autenticidade.
+                </p>
+            </div>
+
+            <div data-aos="fade-left" class="grid grid-cols-2 gap-6">
+                <div class="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                    <h3 class="counter text-4xl font-bold text-red-500" data-target="1200">0</h3>
+                    <p class="mt-2 text-gray-300 text-sm">Viajantes Atendidos</p>
+                </div>
+                <div class="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                    <h3 class="counter text-4xl font-bold text-red-500" data-target="98">0</h3>
+                    <p class="mt-2 text-gray-300 text-sm">% Satisfação</p>
+                </div>
+                <div class="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                    <h3 class="counter text-4xl font-bold text-red-500" data-target="15">0</h3>
+                    <p class="mt-2 text-gray-300 text-sm">Anos de Experiência</p>
+                </div>
+                <div class="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+                    <h3 class="counter text-4xl font-bold text-red-500" data-target="24">0</h3>
+                    <p class="mt-2 text-gray-300 text-sm">Suporte 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTATO ================= -->
+    <section id="contato" class="py-24 relative z-10 bg-slate-900/50">
+        <div class="max-w-4xl mx-auto px-8">
+            <div class="text-center mb-12">
+                <h2 data-aos="fade-up" class="text-5xl font-bold mb-4">Fale Conosco</h2>
+                <p data-aos="fade-up" data-aos-delay="100" class="text-gray-300">
+                    Planeje sua viagem dos sonhos ou tire suas dúvidas com nossa equipe.
+                </p>
+            </div>
+
+            <form data-aos="fade-up" data-aos-delay="200" class="backdrop-blur-md bg-white/5 border border-white/10 p-8 md:p-10 rounded-3xl space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Nome Completo</label>
+                        <input type="text" placeholder="Seu nome" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">E-mail</label>
+                        <input type="email" placeholder="seuemail@exemplo.com" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Assunto / Pacote de Interesse</label>
+                    <input type="text" placeholder="Ex: Informações sobre Hokkaido Express" class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 transition">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-2">Mensagem</label>
+                    <textarea rows="4" placeholder="Escreva sua mensagem aqui..." class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 transition"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 py-4 rounded-xl font-bold transition text-lg">
+                    Enviar Mensagem
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ================= CHATBOT WIDGET ================= -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <div id="chatWindow" class="hidden w-80 md:w-96 bg-slate-900 border border-white/20 rounded-2xl shadow-2xl overflow-hidden mb-4 transition-all">
+            <div class="bg-red-600 px-6 py-4 flex justify-between items-center font-bold">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-robot"></i>
+                    <span>StartTourBot</span>
+                </div>
+                <button id="closeChat" class="text-white hover:text-gray-200"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="chatBody" class="p-4 h-80 overflow-y-auto space-y-3 text-sm">
+                <div class="bg-white/10 p-3 rounded-xl max-w-[85%]">
+                    Olá! Como posso ajudar você a planejar sua viagem ao Japão hoje?
+                </div>
+            </div>
+            <div class="p-3 border-t border-white/10 flex gap-2 bg-black/40">
+                <input id="chatInput" type="text" placeholder="Digite sua mensagem..." class="flex-grow bg-slate-800 border border-white/10 rounded-xl px-3 py-2 text-sm text-white focus:outline-none focus:border-red-500">
+                <button id="sendMessage" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-xl text-sm font-semibold transition">
+                    Enviar
+                </button>
+            </div>
+        </div>
+
+        <button id="toggleChat" class="bg-red-600 hover:bg-red-700 text-white p-4 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-110 ml-auto">
+            <i class="fa-solid fa-comments text-2xl"></i>
+        </button>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="border-t border-white/10 py-12 relative z-10 bg-black/40">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-torii-gate text-red-500 text-2xl"></i>
+                <span class="text-xl font-bold">Start<span class="text-red-500">Tour</span></span>
+            </div>
+
+            <p class="text-gray-400 text-sm">© StartTour. Todos os direitos reservados.</p>
+
+            <div class="flex gap-5 text-xl">
+                <a href="#" class="hover:text-red-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-red-500 transition"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="hover:text-red-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= SCRIPTS ================= -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/chatbot.js"></script>
+
+    <script>
+        // Inicialização do AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Lógica simples de alternar visibilidade do Chatbot
+        const toggleBtn = document.getElementById('toggleChat');
+        const closeBtn = document.getElementById('closeChat');
+        const chatWin = document.getElementById('chatWindow');
+
+        if (toggleBtn && chatWin) {
+            toggleBtn.addEventListener('click', () => chatWin.classList.toggle('hidden'));
+        }
+        if (closeBtn && chatWin) {
+            closeBtn.addEventListener('click', () => chatWin.classList.add('hidden'));
+        }
+    </script>
+</body>
+
+</html>

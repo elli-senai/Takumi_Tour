@@ -1,0 +1,121 @@
+[
+  {
+    "id": 1,
+    "nome": "Tóquio",
+    "slug": "tokyo",
+    "dias": 7,
+    "preco": 13990,
+    "moeda": "R$",
+    "imagem": "assets/imagens/tokyo.jpg",
+    "banner": "assets/imagens/tokyo-banner.jpg",
+    "categoria": "Cidade",
+    "avaliacao": 4.9,
+    "descricao": "A capital do Japão reúne tecnologia, cultura tradicional, gastronomia e uma vida noturna vibrante.",
+    "atracoes": [
+      "Shibuya Crossing",
+      "Tokyo Tower",
+      "Templo Senso-ji",
+      "Akihabara",
+      "Harajuku",
+      "Parque Ueno",
+      "Palácio Imperial"
+    ]
+  },
+  {
+    "id": 2,
+    "nome": "Kyoto",
+    "slug": "kyoto",
+    "dias": 6,
+    "preco": 11990,
+    "moeda": "R$",
+    "imagem": "assets/imagens/kyoto.jpg",
+    "banner": "assets/imagens/kyoto-banner.jpg",
+    "categoria": "História",
+    "avaliacao": 4.8,
+    "descricao": "Conhecida pelos templos, jardins, casas tradicionais e pela cultura japonesa preservada.",
+    "atracoes": [
+      "Templo Kinkaku-ji",
+      "Fushimi Inari",
+      "Bosque de Bambu",
+      "Distrito Gion",
+      "Palácio Imperial de Kyoto"
+    ]
+  },
+  {
+    "id": 3,
+    "nome": "Osaka",
+    "slug": "osaka",
+    "dias": 6,
+    "preco": 10990,
+    "moeda": "R$",
+    "imagem": "assets/imagens/osaka.jpg",
+    "banner": "assets/imagens/osaka-banner.jpg",
+    "categoria": "Gastronomia",
+    "avaliacao": 4.7,
+    "descricao": "Uma cidade vibrante, famosa por sua culinária, castelo histórico e vida noturna.",
+    "atracoes": [
+      "Castelo de Osaka",
+      "Dotonbori",
+      "Universal Studios Japan",
+      "Aquário Kaiyukan"
+    ]
+  },
+  {
+    "id": 4,
+    "nome": "Hokkaido",
+    "slug": "hokkaido",
+    "dias": 8,
+    "preco": 15490,
+    "moeda": "R$",
+    "imagem": "assets/imagens/hokkaido.jpg",
+    "banner": "assets/imagens/hokkaido-banner.jpg",
+    "categoria": "Natureza",
+    "avaliacao": 4.9,
+    "descricao": "Destino ideal para quem ama neve, montanhas, estações de esqui e paisagens naturais.",
+    "atracoes": [
+      "Sapporo",
+      "Parque Nacional Daisetsuzan",
+      "Niseko",
+      "Lago Toya"
+    ]
+  },
+  {
+    "id": 5,
+    "nome": "Okinawa",
+    "slug": "okinawa",
+    "dias": 7,
+    "preco": 12790,
+    "moeda": "R$",
+    "imagem": "assets/imagens/okinawa.jpg",
+    "banner": "assets/imagens/okinawa-banner.jpg",
+    "categoria": "Praias",
+    "avaliacao": 4.8,
+    "descricao": "Praias paradisíacas, águas cristalinas e clima tropical fazem de Okinawa um destino inesquecível.",
+    "atracoes": [
+      "Aquário Churaumi",
+      "Praia Emerald",
+      "Ilha Ishigaki",
+      "Castelo Shurijo"
+    ]
+  },
+  {
+    "id": 6,
+    "nome": "Shibuya",
+    "slug": "shibuya",
+    "dias": 1,
+    "preco": 0,
+    "moeda": "Incluído no pacote de Tóquio",
+    "imagem": "assets/imagens/shibuya.jpg",
+    "banner": "assets/imagens/shibuya-banner.jpg",
+    "categoria": "Atração",
+    "avaliacao": 5.0,
+    "descricao": "O bairro mais famoso de Tóquio, conhecido pelo maior cruzamento do mundo, lojas, cafés temáticos e letreiros de neon.",
+    "atracoes": [
+      "Shibuya Crossing",
+      "Estátua de Hachiko",
+      "Shibuya Sky",
+      "Mega Don Quijote",
+      "Shibuya Center-Gai"
+    ]
+  }
+]

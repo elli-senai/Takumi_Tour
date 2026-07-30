@@ -1,0 +1,474 @@
+/* ===========================================================
+   StartTour - Style.css
+   Desenvolvido para o projeto StartTour
+=========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    background: #020617;
+
+    color: white;
+
+    overflow-x: hidden;
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+
+    width: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+
+    background: #020617;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #dc2626;
+
+    border-radius: 20px;
+
+}
+
+/* Particles */
+
+#particles-js {
+
+    position: fixed;
+
+    width: 100%;
+
+    height: 100%;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: -1;
+
+}
+
+/* Glass Effect */
+
+.glass {
+
+    background: rgba(255, 255, 255, .08);
+
+    border: 1px solid rgba(255, 255, 255, .12);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+
+        0 15px 40px rgba(0, 0, 0, .4);
+
+}
+
+/* Hero */
+
+.hero-title {
+
+    font-size: 72px;
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+}
+
+.hero-subtitle {
+
+    font-size: 22px;
+
+    color: #d4d4d8;
+
+}
+
+/* Navbar */
+
+nav {
+
+    transition: .4s;
+
+}
+
+nav.scrolled {
+
+    background: rgba(0, 0, 0, .85);
+
+    backdrop-filter: blur(25px);
+
+}
+
+/* Botões */
+
+button {
+
+    cursor: pointer;
+
+    transition: .35s;
+
+}
+
+button:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+
+        0 15px 35px rgba(220, 38, 38, .45);
+
+}
+
+/* Cards */
+
+.card {
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    transition: .45s;
+
+    background: #0f172a;
+
+}
+
+.card:hover {
+
+    transform:
+
+        translateY(-10px) scale(1.02);
+
+}
+
+.card img {
+
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: cover;
+
+    transition: .5s;
+
+}
+
+.card:hover img {
+
+    transform: scale(1.08);
+
+}
+
+/* Destinos */
+
+.destination-price {
+
+    color: #ef4444;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+}
+
+.destination-days {
+
+    color: #94a3b8;
+
+    font-size: 15px;
+
+}
+
+/* Badge */
+
+.badge {
+
+    display: inline-block;
+
+    background: #dc2626;
+
+    padding: 6px 15px;
+
+    border-radius: 50px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+/* Swiper */
+
+.swiper {
+
+    padding-bottom: 60px;
+
+}
+
+.swiper-slide {
+
+    transition: .4s;
+
+}
+
+.swiper-slide:hover {
+
+    transform: scale(1.04);
+
+}
+
+/* Footer */
+
+footer {
+
+    background: #010409;
+
+}
+
+footer a {
+
+    transition: .3s;
+
+}
+
+footer a:hover {
+
+    color: #ef4444;
+
+}
+
+/* Inputs */
+
+input,
+textarea {
+
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background: #1e293b;
+
+    color: white;
+
+    outline: none;
+
+    margin-top: 15px;
+
+}
+
+input:focus,
+
+textarea:focus {
+
+    border: 1px solid #ef4444;
+
+}
+
+/* Chatbot */
+
+.chatbot {
+
+    position: fixed;
+
+    bottom: 25px;
+
+    right: 25px;
+
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 50%;
+
+    background: #dc2626;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    z-index: 999;
+
+    font-size: 28px;
+
+    box-shadow:
+
+        0 15px 40px rgba(220, 38, 38, .45);
+
+}
+
+.chat-window {
+
+    position: fixed;
+
+    bottom: 110px;
+
+    right: 30px;
+
+    width: 340px;
+
+    height: 480px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background: #0f172a;
+
+    display: none;
+
+    flex-direction: column;
+
+    box-shadow:
+
+        0 25px 60px rgba(0, 0, 0, .55);
+
+}
+
+.chat-header {
+
+    background: #dc2626;
+
+    padding: 18px;
+
+    font-weight: bold;
+
+}
+
+.chat-body {
+
+    flex: 1;
+
+    padding: 20px;
+
+    overflow: auto;
+
+}
+
+.chat-footer {
+
+    padding: 15px;
+
+}
+
+/* Galeria */
+
+.gallery {
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(auto-fit, minmax(300px, 1fr));
+
+    gap: 25px;
+
+}
+
+.gallery img {
+
+    width: 100%;
+
+    border-radius: 20px;
+
+    transition: .45s;
+
+}
+
+.gallery img:hover {
+
+    transform: scale(1.05);
+
+}
+
+/* Efeito Glow */
+
+.glow {
+
+    text-shadow:
+
+        0 0 15px rgba(239, 68, 68, .8),
+
+        0 0 40px rgba(239, 68, 68, .5);
+
+}
+
+/* Responsividade */
+
+@media(max-width:900px) {
+
+    .hero-title {
+
+        font-size: 50px;
+
+    }
+
+    .hero-subtitle {
+
+        font-size: 18px;
+
+    }
+
+    .card img {
+
+        height: 220px;
+
+    }
+
+    .chat-window {
+
+        width: 95%;
+
+        right: 2.5%;
+
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .hero-title {
+
+        font-size: 38px;
+
+    }
+
+    .hero-subtitle {
+
+        font-size: 16px;
+
+    }
+
+    nav {
+
+        padding: 10px;
+
+    }
+
+}
