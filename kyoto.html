@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyoto | StartTour</title>
-    <!-- Tailwind -->
+    <title>Kyoto | TakumiTour</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -15,146 +15,256 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
 </head>
-<body class="bg-slate-950 text-white">
-    <div id="particles-js"></div>
+<body class="bg-slate-950 text-white font-sans antialiased selection:bg-red-500 selection:text-white">
+
+    <div id="particles-js" class="fixed inset-0 pointer-events-none z-0"></div>
+
     <!-- NAVBAR -->
-    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/30 border-b border-white/10">
-        <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-5">
-            <a href="index.html" class="flex items-center gap-3">
-                <i class="fa-solid fa-torii-gate text-red-500 text-3xl"></i>
-                <h1 class="text-3xl font-bold">
-                    Start<span class="text-red-500">Tour</span>
+    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/40 border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <i class="fa-solid fa-torii-gate text-red-500 text-3xl group-hover:scale-110 transition-transform duration-300"></i>
+                <h1 class="text-2xl md:text-3xl font-bold tracking-wide">
+                    Takumi<span class="text-red-500">Tour</span>
                 </h1>
             </a>
-            <ul class="hidden md:flex gap-8">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#atracoes">Atrações</a></li>
-                <li><a href="#pacotes">Pacotes</a></li>
-                <li><a href="#galeria">Galeria</a></li>
+            <ul class="hidden md:flex gap-8 text-sm uppercase tracking-wider font-medium text-gray-300">
+                <li><a href="index.html" class="hover:text-red-500 transition-colors">Início</a></li>
+                <li><a href="#sobre" class="hover:text-red-500 transition-colors">Sobre</a></li>
+                <li><a href="#atracoes" class="hover:text-red-500 transition-colors">Atrações</a></li>
+                <li><a href="#pacotes" class="hover:text-red-500 transition-colors">Pacotes</a></li>
+                <li><a href="#galeria" class="hover:text-red-500 transition-colors">Galeria</a></li>
             </ul>
             <a href="#pacotes">
-                <button class="bg-red-600 px-6 py-3 rounded-full">
+                <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-semibold shadow-lg shadow-red-600/30 transition-all duration-300 hover:scale-105 active:scale-95">
                     Reservar
                 </button>
             </a>
         </div>
     </nav>
+
     <!-- HERO -->
     <header class="relative h-screen flex justify-center items-center overflow-hidden">
-        <img src="assets/imagens/kyoto-banner.jpg" class="absolute w-full h-full object-cover brightness-50">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-slate-950"></div>
-        <div class="relative text-center max-w-5xl px-6">
-            <h1 data-aos="fade-up" class="text-7xl md:text-8xl font-extrabold">
+        <img src="assets/imagens/kyoto-banner.jpg" alt="Kyoto Banner" class="absolute w-full h-full object-cover brightness-50">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-slate-950"></div>
+        <div class="relative z-10 text-center max-w-5xl px-6">
+            <h1 data-aos="fade-up" class="text-6xl md:text-8xl font-black tracking-tight text-white drop-shadow-lg">
                 KYOTO
             </h1>
-            <p data-aos="fade-up" data-aos-delay="300" class="mt-8 text-2xl text-gray-200">
-                A antiga capital do Japão espera por você com templos,
-                jardins, cultura milenar e experiências inesquecíveis.
+            <p data-aos="fade-up" data-aos-delay="300" class="mt-6 text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto font-light leading-relaxed">
+                A antiga capital do Japão espera por você com templos milenares, jardins zen e experiências inesquecíveis.
             </p>
-            <div data-aos="zoom-in" data-aos-delay="600" class="mt-12">
+            <div data-aos="zoom-in" data-aos-delay="600" class="mt-10">
                 <a href="#pacotes">
-                    <button class="bg-red-600 px-10 py-4 rounded-full font-bold">
+                    <button class="bg-red-600 hover:bg-red-700 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl shadow-red-600/40 hover:scale-105 transition-all duration-300">
                         Ver Pacotes
                     </button>
                 </a>
             </div>
         </div>
     </header>
+
     <!-- SOBRE -->
-    <section id="sobre" class="py-24">
+    <section id="sobre" class="relative z-10 py-24">
         <div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-16 items-center">
-            <div data-aos="fade-right">
-                <img src="assets/imagens/kyoto.jpg" class="rounded-3xl shadow-2xl">
+            <div data-aos="fade-right" class="relative">
+                <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-amber-600 rounded-3xl blur opacity-30"></div>
+                <img src="assets/imagens/kyoto.jpg" alt="Sobre Kyoto" class="relative rounded-3xl shadow-2xl w-full object-cover">
             </div>
             <div data-aos="fade-left">
-                <span class="badge">
+                <span class="inline-block bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-semibold uppercase tracking-wider px-4 py-1.5 rounded-full mb-4">
                     Patrimônio Mundial
                 </span>
-                <h2 class="text-5xl font-bold mt-6">
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight">
                     Conheça Kyoto
                 </h2>
-                <p class="mt-8 text-gray-300 leading-8">
-                    Kyoto foi a capital do Japão durante mais de mil anos e
-                    é considerada o coração da cultura japonesa.
-                    A cidade abriga centenas de templos,
-                    santuários, jardins, palácios imperiais e bairros históricos.
+                <p class="mt-6 text-gray-300 leading-relaxed text-lg">
+                    Kyoto foi a capital do Japão por mais de mil anos e é considerada o verdadeiro coração da cultura japonesa. A cidade preserva centenas de templos budistas, santuários xintoístas, jardins contemplativos e palácios imperiais.
                 </p>
-                <p class="mt-6 text-gray-300 leading-8">
-                    Ao caminhar por Kyoto é possível encontrar gueixas,
-                    casas tradicionais de madeira,
-                    florestas de bambu e paisagens que mudam completamente
-                    durante a época das flores de cerejeira.
+                <p class="mt-4 text-gray-300 leading-relaxed text-lg">
+                    Caminhar por suas ruas históricas é como voltar no tempo: encontre gueixas no charmoso bairro de Gion, explore florestas de bambu imponentes e maravilhe-se com o espetáculo das flores de cerejeira na primavera.
                 </p>
                 <div class="grid grid-cols-2 gap-6 mt-10">
-                    <div class="glass p-6 rounded-2xl text-center">
-                        <h3 class="counter text-5xl text-red-500 font-bold" data-target="1600">
-                            0
-                        </h3>
-                        <p class="mt-3">
-                            Templos e Santuários
-                        </p>
+                    <div class="bg-white/5 border border-white/10 backdrop-blur-md p-6 rounded-2xl text-center">
+                        <h3 class="counter text-4xl md:text-5xl text-red-500 font-extrabold" data-target="1600">1600+</h3>
+                        <p class="mt-2 text-sm text-gray-400 font-medium uppercase tracking-wider">Templos e Santuários</p>
                     </div>
-                    <div class="glass p-6 rounded-2xl text-center">
-                        <h3 class="counter text-5xl text-red-500 font-bold" data-target="17">
-                            0
-                        </h3>
-                        <p class="mt-3">
-                            Patrimônios da UNESCO
-                        </p>
+                    <div class="bg-white/5 border border-white/10 backdrop-blur-md p-6 rounded-2xl text-center">
+                        <h3 class="counter text-4xl md:text-5xl text-red-500 font-extrabold" data-target="17">17</h3>
+                        <p class="mt-2 text-sm text-gray-400 font-medium uppercase tracking-wider">Patrimônios UNESCO</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- ATRAÇÕES -->
-    <section id="atracoes" class="py-24">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-center text-5xl font-bold mb-16">
-                Principais Atrações
-            </h2>
-            <div class="grid md:grid-cols-3 gap-10 px-8">
-                <!-- Os cards serão adicionados na Parte 2 -->
+    <section id="atracoes" class="relative z-10 py-24 bg-black/40 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold">Principais Atrações</h2>
+                <p class="text-gray-400 mt-4 text-lg">Descubra os pontos turísticos imperdíveis que tornam Kyoto um destino mágico.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-slate-900 rounded-3xl overflow-hidden border border-white/10 hover:border-red-500/50 transition-all duration-300 group">
+                    <div class="overflow-hidden h-64">
+                        <img src="assets/imagens/fushimi-inari.jpg" alt="Fushimi Inari-taisha" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Fushimi Inari-taisha</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Famoso por seus milhares de portões torii vermelhos que sobem as montanhas sagradas.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-slate-900 rounded-3xl overflow-hidden border border-white/10 hover:border-red-500/50 transition-all duration-300 group">
+                    <div class="overflow-hidden h-64">
+                        <img src="assets/imagens/kinkakuji.jpg" alt="Kinkaku-ji" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Kinkaku-ji (Pavilhão Dourado)</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Impressionante templo Zen cujos andares superiores são completamente cobertos por folhas de ouro.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-slate-900 rounded-3xl overflow-hidden border border-white/10 hover:border-red-500/50 transition-all duration-300 group">
+                    <div class="overflow-hidden h-64">
+                        <img src="assets/imagens/arashiyama.jpg" alt="Arashiyama Bamboo Grove" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Bosque de Bambu de Arashiyama</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">Caminhe por caminhos ladeados por soaring hastes de bambu que criam um som relaxante único.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <!-- ================= PACOTES ================= -->
-    <section id="pacotes" class="py-24 bg-white/5">
-        <div class="max-w-7xl mx-auto px-8 text-center">
-            <h2 class="text-5xl font-bold mb-6">Pacotes de Kyoto</h2>
-            <p class="text-gray-300 max-w-3xl mx-auto">
-                Conheça nossos pacotes completos com hospedagem, paseios e roteiros únicos em Kyoto.
-            </p>
+
+    <!-- PACOTES -->
+    <section id="pacotes" class="relative z-10 py-24">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold">Pacotes de Viagem</h2>
+                <p class="text-gray-400 mt-4 text-lg">Conheça nossos pacotes completos com hospedagem, passeios e roteiros únicos em Kyoto.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Pacote 1 -->
+                <div data-aos="fade-up" class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col justify-between hover:bg-white/10 transition-all">
+                    <div>
+                        <span class="text-red-500 font-semibold text-sm uppercase">5 Dias / 4 Noites</span>
+                        <h3 class="text-2xl font-bold mt-2">Essencial Kyoto</h3>
+                        <p class="text-gray-400 text-sm mt-3">Ideal para quem deseja conhecer os principais cartões-postais da cidade de forma prática.</p>
+                        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+                            <li><i class="fa-solid fa-check text-red-500 mr-2"></i> Hotel 4 estrelas central</li>
+                            <li><i class="fa-solid fa-check text-red-500 mr-2"></i> Tour pelos Templos Principais</li>
+                            <li><i class="fa-solid fa-check text-red-500 mr-2"></i> Guia bilíngue incluso</li>
+                        </ul>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 block">A partir de</span>
+                            <span class="text-2xl font-bold text-white">R$ 6.400</span>
+                        </div>
+                        <button class="bg-red-600 hover:bg-red-700 px-5 py-2.5 rounded-full text-sm font-semibold transition-all">Reservar</button>
+                    </div>
+                </div>
+                <!-- Pacote 2 (Destaque) -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-gradient-to-b from-red-950/40 to-slate-900 border-2 border-red-500/50 rounded-3xl p-8 flex flex-col justify-between relative shadow-2xl shadow-red-900/20">
+                    <span class="absolute -top-3 right-6 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Mais Popular</span>
+                    <div>
+                        <span class="text-red-400 font-semibold text-sm uppercase">7 Dias / 6 Noites</span>
+                        <h3 class="text-2xl font-bold mt-2">Imersão Cultural</h3>
+                        <p class="text-gray-400 text-sm mt-3">Uma vivência aprofundada com experiências tradicionais japonesas exclusivas.</p>
+                        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+                            <li><i class="fa-solid fa-check text-red-500 mr-2"></i> Hospedagem em Ryokan Tradicional</li>
+                            <li><i class="fa-solid fa-check text-red-500 mr-2"></i> Cerimônia do Chá Privada</li>
+                            <li><i class="fa-solid fa-check text-red-500 mr-2"></i> Passeio noturno por Gion</li>
+                        </ul>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 block">A partir de</span>
+                            <span class="text-2xl font-bold text-white">R$ 9.800</span>
+                        </div>
+                        <button class="bg-red-600 hover:bg-red-700 px-5 py-2.5 rounded-full text-sm font-semibold transition-all">Reservar</button>
+                    </div>
+                </div>
+                <!-- Pacote 3 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col justify-between hover:bg-white/10 transition-all">
+                    <div>
+                        <span class="text-red-500 font-semibold text-sm uppercase">10 Dias / 9 Noites</span>
+                        <h3 class="text-2xl font-bold mt-2">Kyoto & Região</h3>
+                        <p class="text-gray-400 text-sm mt-3">Combine as belezas de Kyoto com bate-voltas para Nara, Uji e Osaka.</p>
+                        <ul class="mt-6 space-y-3 text-sm text-gray-300">
+                            <li><i class="fa-solid fa-check text-red-500 mr-2"></i> Passe JR Pass Incluso</li>
+                            <li><i class="fa-solid fa-check text-red-500 mr-2"></i> Hotéis 5 estrelas</li>
+                            <li><i class="fa-solid fa-check text-red-500 mr-2"></i> Experiências Gastronômicas</li>
+                        </ul>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 block">A partir de</span>
+                            <span class="text-2xl font-bold text-white">R$ 13.500</span>
+                        </div>
+                        <button class="bg-red-600 hover:bg-red-700 px-5 py-2.5 rounded-full text-sm font-semibold transition-all">Reservar</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    <!-- ================= GALERIA ================= -->
-    <section id="galeria" class="py-24">
+
+    <!-- GALERIA -->
+    <section id="galeria" class="relative z-10 py-24 bg-black/40">
         <div class="max-w-7xl mx-auto px-8 text-center">
-            <h2 class="text-5xl font-bold mb-6">Galeria</h2>
-            <p class="text-gray-300 max-w-3xl mx-auto mb-10">
-                Inspire-se com imagens das principais atraçes de Kyoto.
+            <h2 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">Galeria</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                Inspire-se com imagens das principais atrações de Kyoto.
             </p>
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="rounded-3xl overflow-hidden">
-                    <img src="assets/imagens/kyoto-galeria-1.jpg" alt="Templo de Kyoto"
-                        class="w-full h-64 object-cover">
+                <div class="rounded-3xl overflow-hidden border border-white/10 group" data-aos="zoom-in">
+                    <img src="assets/imagens/kyoto-galeria-1.jpg" alt="Templo de Kyoto" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
-                <div class="rounded-3xl overflow-hidden">
-                    <img src="assets/imagens/kyoto-galeria-2.jpg" alt="Floresta de bambu"
-                        class="w-full h-64 object-cover">
+                <div class="rounded-3xl overflow-hidden border border-white/10 group" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="assets/imagens/kyoto-galeria-2.jpg" alt="Floresta de bambu" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
-                <div class="rounded-3xl overflow-hidden">
-                    <img src="assets/imagens/kyoto-galeria-3.jpg" alt="Jardim japonês" class="w-full h-64 object-cover">
+                <div class="rounded-3xl overflow-hidden border border-white/10 group" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="assets/imagens/kyoto-galeria-3.jpg" alt="Jardim japonês" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- FOOTER -->
+    <footer class="relative z-10 border-t border-white/10 bg-slate-950 py-12">
+        <div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-torii-gate text-red-500 text-2xl"></i>
+                <span class="text-xl font-bold">Takumi<span class="text-red-500">Tour</span></span>
+            </div>
+            <p class="text-gray-500 text-sm">© 2026 TakumiTour. Todos os direitos reservados.</p>
+            <div class="flex gap-4 text-gray-400">
+                <a href="#" class="hover:text-red-500 transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="#" class="hover:text-red-500 transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                <a href="#" class="hover:text-red-500 transition-colors"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/chatbot.js"></script>
     <script src="js/slider.js"></script>
+    <script>
+        // Inicializador do AOS (Animações ao rolar a página)
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
 </body>
-
 </html>

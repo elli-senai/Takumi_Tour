@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shibuya | StartTour</title>
+    <title>Shibuya | TakumiTour</title>
+    <meta name="description" content="Explore o ritmo contagiante de Shibuya em Tóquio com a TakumiTour. Pacotes de viagem, Shibuya Crossing, Shibuya Sky, estátua do Hachiko e vida noturna neon.">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- AOS (Animate On Scroll) -->
@@ -21,335 +22,638 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-    <!-- Estilos Customizados -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: #ec4899 !important;
+            background: rgba(0,0,0,0.6);
+            width: 48px !important;
+            height: 48px !important;
+            border-radius: 50%;
+            backdrop-filter: blur(4px);
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 20px !important;
+            font-weight: bold;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #ec4899 !important;
+            width: 24px !important;
+            border-radius: 999px !important;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #db2777;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #be185d;
+        }
+    </style>
 </head>
 
-<body class="bg-slate-950 text-white font-['Poppins'] overflow-x-hidden">
+<body class="bg-slate-950 text-white overflow-x-hidden font-['Poppins'] relative">
 
+    <!-- Particles Background Canvas container -->
     <div id="particles-js" class="fixed inset-0 pointer-events-none z-0"></div>
 
-    <!-- ================= NAVBAR ================= -->
-    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/30 border-b border-white/10">
-        <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-5">
-            <a href="index.html" class="flex items-center gap-3">
-                <i class="fa-solid fa-torii-gate text-red-500 text-3xl"></i>
-                <h1 class="text-3xl font-bold">
-                    Start<span class="text-red-500">Tour</span>
+    <!-- ========================= NAVBAR ========================= -->
+    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/50 border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-8 py-4">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <i class="fa-solid fa-bolt text-pink-500 text-3xl group-hover:scale-110 transition-transform duration-300"></i>
+                <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">
+                    Takumi<span class="text-pink-500">Tour</span>
                 </h1>
             </a>
 
-            <ul class="hidden md:flex gap-8 text-lg font-medium">
-                <li><a href="index.html" class="hover:text-red-500 transition">Início</a></li>
-                <li><a href="#sobre" class="hover:text-red-500 transition">Sobre</a></li>
-                <li><a href="#experiencias" class="hover:text-red-500 transition">Experiências</a></li>
-                <li><a href="#pacotes" class="hover:text-red-500 transition">Pacotes</a></li>
-                <li><a href="#galeria" class="hover:text-red-500 transition">Galeria</a></li>
+            <ul class="hidden lg:flex items-center gap-8 text-base font-medium">
+                <li><a href="#" class="hover:text-pink-500 transition duration-200">Início</a></li>
+                <li><a href="#sobre" class="hover:text-pink-500 transition duration-200">Sobre</a></li>
+                <li><a href="#atracoes" class="hover:text-pink-500 transition duration-200">Atrações</a></li>
+                <li><a href="#pacotes" class="hover:text-pink-500 transition duration-200">Pacotes</a></li>
+                <li><a href="#galeria" class="hover:text-pink-500 transition duration-200">Galeria</a></li>
             </ul>
 
-            <a href="#pacotes">
-                <button class="bg-red-600 px-6 py-3 rounded-full font-semibold hover:bg-red-700 hover:scale-105 transition duration-300 shadow-lg shadow-red-600/30">
-                    Reservar
-                </button>
-            </a>
+            <div class="flex items-center gap-4">
+                <a href="#pacotes" class="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 hover:scale-105 active:scale-95 transition duration-300 px-6 py-2.5 rounded-full font-semibold text-sm md:text-base shadow-lg shadow-pink-600/30 inline-flex items-center gap-2">
+                    <i class="fa-solid fa-ticket text-sm"></i>
+                    Reservar Agora
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!-- ================= HERO ================= -->
-    <header class="relative h-screen flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1920&q=80" alt="Shibuya Crossing Banner" class="absolute w-full h-full object-cover brightness-50">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-slate-950"></div>
+    <!-- ========================= HERO ========================= -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=2000&q=80"
+            alt="Cruzamento de Shibuya à noite" class="absolute inset-0 w-full h-full object-cover brightness-50 scale-105 animate-pulse" style="animation-duration: 12s;">
 
-        <div class="relative text-center max-w-5xl px-5 z-10">
-            <span data-aos="fade-down" class="bg-red-500/20 text-red-400 border border-red-500/40 text-sm font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6 inline-block">
-                O Coração Pulsante de Tóquio
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-slate-950"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl py-12">
+            <span data-aos="fade-down" class="inline-block bg-pink-500/20 text-pink-400 border border-pink-500/40 px-5 py-2 rounded-full uppercase tracking-[4px] text-xs md:text-sm font-semibold mb-6">
+                <i class="fa-solid fa-city mr-2"></i> O Coração Elétrico de Tóquio • Japão
             </span>
-            <h1 data-aos="fade-up" class="text-7xl md:text-8xl font-extrabold tracking-tight">
-                SHIBUYA
+
+            <h1 data-aos="fade-up" class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight drop-shadow-2xl">
+                SHIBUYA <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-rose-400 to-purple-500">TOKYO</span>
             </h1>
-            <p data-aos="fade-up" data-aos-delay="300" class="mt-8 text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-                Sinta a energia do cruzamento de pedestres mais famoso do mundo, cercado por painéis luminosos, moda urbana e vida noturna vibrante.
+
+            <p data-aos="fade-up" data-aos-delay="200" class="mt-8 text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-light">
+                Sinta a energia inigualável do cruzamento mais movimentado do planeta. Luzes neon, moda underground, mirantes futuristas e culinária épica.
             </p>
-            <div data-aos="zoom-in" data-aos-delay="700" class="mt-12">
-                <a href="#pacotes">
-                    <button class="bg-red-600 px-10 py-4 rounded-full text-lg font-bold hover:bg-red-700 hover:scale-105 transition duration-300 shadow-xl shadow-red-600/40">
-                        Ver Roteiros Shibuya
-                    </button>
+
+            <div class="mt-10 flex flex-wrap justify-center gap-5" data-aos="zoom-in" data-aos-delay="400">
+                <a href="#pacotes" class="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 hover:scale-105 transition duration-300 px-9 py-4 rounded-full font-bold text-lg shadow-xl shadow-pink-600/40 inline-flex items-center gap-3">
+                    <i class="fa-solid fa-compass"></i> Explorar Pacotes
+                </a>
+
+                <a href="#galeria" class="glass hover:bg-white/10 hover:border-white/30 hover:scale-105 transition duration-300 px-9 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3">
+                    <i class="fa-solid fa-images"></i> Galeria Urbana
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- ================= SOBRE ================= -->
+    <!-- ========================= SOBRE ========================= -->
     <section id="sobre" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-16 items-center">
-            <div data-aos="fade-right">
-                <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80" alt="Shibuya à noite" class="rounded-3xl shadow-2xl border border-white/10 w-full object-cover">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 grid lg:grid-cols-2 gap-16 items-center">
+
+            <div data-aos="fade-right" class="relative">
+                <div class="absolute -top-4 -left-4 w-72 h-72 bg-pink-600/20 rounded-full blur-3xl -z-10"></div>
+                <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1000&q=80"
+                    alt="Visão Aérea do Cruzamento de Shibuya" class="rounded-3xl shadow-2xl border border-white/10 w-full h-[520px] object-cover hover:scale-[1.02] transition duration-500">
             </div>
 
             <div data-aos="fade-left">
-                <span class="bg-red-500/20 text-red-500 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-red-500/30">
-                    Moda & Modernidade
+                <span class="inline-block bg-pink-600/20 text-pink-400 border border-pink-500/30 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
+                    A Capital Mundial da Cultura Pop
                 </span>
-                <h2 class="text-4xl md:text-5xl font-bold mt-6">
-                    A Capital da Cultura Jovem
+
+                <h2 class="text-4xl sm:text-5xl font-extrabold mt-6 leading-tight">
+                    O Ritmo Incessante de <span class="text-pink-500">Shibuya</span>
                 </h2>
-                <p class="mt-8 text-gray-300 leading-relaxed text-lg">
-                    Shibuya é o distrito onde as tendências nascem. Famoso em todo o mundo pelo lendário **Shibuya Scramble Crossing**, onde até 3.000 pessoas atravessam a rua a cada abertura do sinal, o bairro é um fervilhar constante de energia.
-                </p>
-                <p class="mt-6 text-gray-300 leading-relaxed text-lg">
-                    Além do famoso cruzamento, Shibuya abriga a estátua do fiel cão **Hachiko**, o complexo de compras Shibuya 109, a plataforma de observação Shibuya Sky e ruas repletas de restaurantes, bares e casas de shows.
+
+                <p class="mt-6 text-gray-300 leading-relaxed text-base sm:text-lg">
+                    Shibuya é muito mais do que um bairro de Tóquio; é o epicentro da juventude, moda, tecnologia e entretenimento do Japão. Famosa mundialmente pelo <em>Scramble Crossing</em>, a região pulsa com milhares de luzes e telas gigantes.
                 </p>
 
+                <p class="mt-4 text-gray-300 leading-relaxed text-base sm:text-lg">
+                    Caminhe pela história de lealdade da estátua do cão Hachiko, explore os becos nostálgicos de *Nonbei Yokocho* ou suba a centenas de metros no *Shibuya Sky* para ver a imensidão da megalópole sob o pôr do sol.
+                </p>
+
+                <!-- Statistics counter cards -->
                 <div class="grid grid-cols-2 gap-6 mt-10">
-                    <div class="glass p-6 rounded-2xl text-center border border-white/10 bg-white/5 backdrop-blur-md">
-                        <h3 class="counter text-5xl font-bold text-red-500" data-target="3000">0</h3>
-                        <p class="mt-3 text-gray-300 font-medium">Pessoas por Abertura</p>
+                    <div class="glass-card p-6 rounded-2xl text-center border border-white/10 shadow-xl hover:border-pink-500/40 transition">
+                        <h3 class="counter text-4xl sm:text-5xl font-black text-pink-500" data-target="3000">0</h3>
+                        <p class="mt-2 text-gray-300 text-sm sm:text-base font-medium">Pessoas por Sinal Aberto</p>
                     </div>
-                    <div class="glass p-6 rounded-2xl text-center border border-white/10 bg-white/5 backdrop-blur-md">
-                        <h3 class="counter text-5xl font-bold text-red-500" data-target="229">0</h3>
-                        <p class="mt-3 text-gray-300 font-medium">Metros do Shibuya Sky</p>
+
+                    <div class="glass-card p-6 rounded-2xl text-center border border-white/10 shadow-xl hover:border-pink-500/40 transition">
+                        <h3 class="counter text-4xl sm:text-5xl font-black text-pink-500" data-target="229">0</h3>
+                        <p class="mt-2 text-gray-300 text-sm sm:text-base font-medium">Metros no Shibuya Sky</p>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- ================= EXPERIÊNCIAS ================= -->
-    <section id="experiencias" class="py-20 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <h2 data-aos="fade-up" class="text-center text-4xl md:text-5xl font-bold mb-16">
-                O que Fazer em <span class="text-red-500">Shibuya</span>
-            </h2>
+    <!-- ========================= ATRAÇÕES ========================= -->
+    <section id="atracoes" class="py-24 relative z-10 bg-slate-900/60 backdrop-blur-sm border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-8">
-                <!-- Card 1 -->
-                <div data-aos="fade-up" data-aos-delay="100" class="glass rounded-3xl overflow-hidden group hover:-translate-y-2 transition duration-300 border border-white/10 bg-white/5 backdrop-blur-md">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=800&q=80" alt="Shibuya Sky" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 left-4 bg-red-600/80 backdrop-blur-md px-4 py-1 rounded-full text-xs font-semibold">Vista 360°</span>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3">Shibuya Sky</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                            Suba ao topo do arranha-céu Shibuya Scramble Square e aprecie uma das vistas panorâmicas mais incríveis da cidade e do Monte Fuji.
-                        </p>
-                        <a href="#pacotes" class="text-red-500 font-semibold inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                            Saiba mais <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div data-aos="fade-up" data-aos-delay="200" class="glass rounded-3xl overflow-hidden group hover:-translate-y-2 transition duration-300 border border-white/10 bg-white/5 backdrop-blur-md">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80" alt="Estátua do Hachiko" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 left-4 bg-red-600/80 backdrop-blur-md px-4 py-1 rounded-full text-xs font-semibold">História</span>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3">Estátua do Hachiko</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                            Visite o emocionante monumento dedicado ao famoso cão Akita que esperou por seu dono na estação por quase dez anos.
-                        </p>
-                        <a href="#pacotes" class="text-red-500 font-semibold inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                            Saiba mais <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div data-aos="fade-up" data-aos-delay="300" class="glass rounded-3xl overflow-hidden group hover:-translate-y-2 transition duration-300 border border-white/10 bg-white/5 backdrop-blur-md">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReCz_Ss8OSzzywye9i-8_L04X8JcZKYCWOKQcIX9bqTQ&s=10" alt="Center Gai" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 left-4 bg-red-600/80 backdrop-blur-md px-4 py-1 rounded-full text-xs font-semibold">Compras & Vida Noturna</span>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3">Center Gai & Nonbei Yokocho</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                            Explore vielas retrô cheias de pequenos bares izakaya e ruas movimentadas repletas de boutiques e lojas conceituais.
-                        </p>
-                        <a href="#pacotes" class="text-red-500 font-semibold inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                            Saiba mais <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= PACOTES ================= -->
-    <section id="pacotes" class="py-24 bg-slate-900/50 relative z-10">
-        <div class="max-w-7xl mx-auto px-8">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                <span class="bg-red-500/20 text-red-500 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-red-500/30">
-                    Passeios Exclusivos
+                <span class="bg-pink-500/20 text-pink-400 border border-pink-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+                    Lugares Imperdíveis
                 </span>
-                <h2 class="text-4xl md:text-5xl font-bold mt-4">
-                    Tour por <span class="text-red-500">Shibuya</span>
+                <h2 class="text-4xl sm:text-5xl font-extrabold mt-4">
+                    Atrações em <span class="text-pink-500">Shibuya</span>
                 </h2>
-                <p class="text-gray-400 mt-4 text-lg">
-                    Escolha a melhor maneira de vivenciar o bairro urbano mais animado do Japão.
+                <p class="text-gray-400 mt-4 text-base sm:text-lg">
+                    Descubra os pontos turísticos mais vibrantes e inesquecíveis da região.
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-8 items-center">
-                <!-- Pacote 1 -->
-                <div data-aos="fade-up" data-aos-delay="100" class="glass rounded-3xl p-8 border border-white/10 hover:border-red-500/50 transition duration-300 bg-white/5 backdrop-blur-md">
-                    <h3 class="text-2xl font-bold">Shibuya Walking Tour</h3>
-                    <p class="text-gray-400 text-sm mt-2">Tour guiado de 3 horas a pé.</p>
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
 
-                    <div class="my-6">
-                        <span class="text-4xl font-extrabold">R$ 350</span>
-                        <span class="text-gray-400">/ pessoa</span>
+                <!-- Atração 1: Cruzamento de Shibuya -->
+                <div data-aos="fade-up" data-aos-delay="100" class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=800&q=80"
+                                alt="Shibuya Scramble Crossing" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-pink-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Ícone Mundial</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-pink-400 transition">Shibuya Scramble Crossing</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Sinta a energia de atravessar a faixa de pedestres mais movimentada do planeta, cercada por outdoors digitais no estilo Cyberpunk.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atração 2: Shibuya Sky -->
+                <div data-aos="fade-up" data-aos-delay="200" class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=800&q=80"
+                                alt="Mirante Shibuya Sky" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-pink-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Panorâmica 360°</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-pink-400 transition">Shibuya Sky</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Um dos mirantes a céu aberto mais espetaculares do mundo. Tenha uma vista deslumbrante de Tóquio e, em dias limpos, do Monte Fuji.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atração 3: Estátua do Hachiko -->
+                <div data-aos="fade-up" data-aos-delay="300" class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?auto=format&fit=crop&w=800&q=80"
+                                alt="Estátua de Hachiko" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-pink-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">História & Cultura</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-pink-400 transition">Estátua do Hachiko</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Visite o famoso ponto de encontro na estação de Shibuya em homenagem ao akita inu lendário por sua lealdade inabalável.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atração 4: Center-Gai & Dogenzaka -->
+                <div data-aos="fade-up" data-aos-delay="400" class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=800&q=80"
+                                alt="Shibuya Center-Gai" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-pink-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Compras & Vida Noturna</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-pink-400 transition">Center-Gai Street</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                A artéria principal de compras e entretenimento. Bares, arcades, lojas de moda street e ramen durante toda a madrugada.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atração 5: Takeshita & Harajuku -->
+                <div data-aos="fade-up" data-aos-delay="500" class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=800&q=80"
+                                alt="Moda em Harajuku" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-pink-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Estilo & Trends</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-pink-400 transition">Harajuku & Omotesando</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                A poucos minutos de caminhada de Shibuya, explore a moda alternativa, crepes famosos, lojas vintage e boutiques de luxo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atração 6: Nonbei Yokocho -->
+                <div data-aos="fade-up" data-aos-delay="600" class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1554797589-7241ab691973?auto=format&fit=crop&w=800&q=80"
+                                alt="Beco de Izakayas Nonbei Yokocho" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-pink-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Gastronomia Retrô</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-pink-400 transition">Nonbei Yokocho</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                O "Beco dos Bêbados": becos charmosos e aconchegantes preservados dos anos 1950, repletos de pequenos *izakayas* de yakitori.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================= PACOTES ========================= -->
+    <section id="pacotes" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="bg-pink-500/20 text-pink-400 border border-pink-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+                    Experiências sob medida
+                </span>
+                <h2 class="text-4xl sm:text-5xl font-extrabold mt-4">
+                    Pacotes <span class="text-pink-500">Shibuya Tour</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-base sm:text-lg">
+                    Escolha o roteiro perfeito: de passeios urbanos a imersões completas na vida noturna e cultura pop.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+
+                <!-- Pacote 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="glass-card rounded-3xl p-8 border border-white/10 hover:border-pink-500/40 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <span class="bg-pink-500/20 text-pink-400 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-pink-500/30">Tour Guiado</span>
+                        <h3 class="text-2xl font-bold mt-5">Shibuya Express Day</h3>
+                        <p class="text-gray-400 text-sm mt-2">1 dia de exploração com guia especializado em cultura pop urbana.</p>
+
+                        <div class="my-6">
+                            <span class="text-4xl font-extrabold text-white">R$ 680</span>
+                            <span class="text-gray-400 text-sm">/ pessoa</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-gray-300 text-sm mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-pink-500"></i> Ingresso VIP sem fila para Shibuya Sky</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-pink-500"></i> Tour a pé por Harajuku & Center-Gai</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-pink-500"></i> Almoço com Ramen artesanal autêntico</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-pink-500"></i> Sessão de fotos no Scramble Crossing</li>
+                        </ul>
                     </div>
 
-                    <ul class="space-y-4 mb-8 text-gray-300 text-sm">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Guia local especializado em cultura pop</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Passagem pela Estátua do Hachiko</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Dicas de compras nas lojas de moda</li>
-                        <li class="flex items-center gap-3 text-gray-500 line-through"><i class="fa-solid fa-xmark"></i> Ingressos para o Shibuya Sky</li>
-                    </ul>
-
-                    <button class="w-full py-4 border border-red-500 text-red-500 rounded-2xl font-bold hover:bg-red-600 hover:text-white transition">
-                        Reservar Tour
+                    <button onclick="openBookingModal('Shibuya Express Day')" class="w-full py-3.5 border border-pink-500/80 text-pink-400 hover:bg-pink-600 hover:text-white rounded-2xl font-bold transition duration-300 text-center">
+                        Reservar Passeio
                     </button>
                 </div>
 
                 <!-- Pacote 2 (Destaque) -->
-                <div data-aos="fade-up" data-aos-delay="200" class="glass rounded-3xl p-8 border-2 border-red-500 relative bg-gradient-to-b from-red-950/40 to-slate-900/80 scale-105 shadow-2xl backdrop-blur-md">
-                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-md">
-                        Mais Vendido
-                    </span>
-
-                    <h3 class="text-2xl font-bold mt-2">Shibuya VIP Sky & Nightlife</h3>
-                    <p class="text-gray-400 text-sm mt-2">A experiência noturna definitiva.</p>
-
-                    <div class="my-6">
-                        <span class="text-4xl font-extrabold text-red-500">R$ 890</span>
-                        <span class="text-gray-400">/ pessoa</span>
+                <div data-aos="fade-up" data-aos-delay="200" class="glass-card rounded-3xl p-8 border-2 border-pink-500 relative flex flex-col justify-between bg-gradient-to-b from-pink-950/40 via-slate-900/90 to-slate-950 scale-105 shadow-2xl shadow-pink-900/20">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-pink-600 to-purple-600 text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg">
+                        Mais Popular
                     </div>
 
-                    <ul class="space-y-4 mb-8 text-gray-200 text-sm">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Entradas sem fila para o Shibuya Sky (Pôr do Sol)</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Tour gastronômico pelos Izakayas ocultos</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Degustação de Sake e petiscos típicos</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Guia Bilingüe acompanhante</li>
-                    </ul>
+                    <div>
+                        <span class="bg-pink-500 text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full">Tóquio Neon VIP</span>
+                        <h3 class="text-2xl font-bold mt-5">Shibuya Lights & Hotel 5★</h3>
+                        <p class="text-gray-300 text-sm mt-2">2 dias / 1 noite em hotel com vista panorâmica do cruzamento.</p>
 
-                    <button class="w-full py-4 bg-red-600 text-white rounded-2xl font-bold hover:bg-red-700 transition shadow-lg shadow-red-600/30">
-                        Reservar Agora
+                        <div class="my-6">
+                            <span class="text-4xl font-extrabold text-pink-500">R$ 2.450</span>
+                            <span class="text-gray-400 text-sm">/ pessoa</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-gray-200 text-sm mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-pink-500"></i> Hospedagem de luxo em hotel em Shibuya</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-pink-500"></i> Tour gastronômico noturno de Izakayas</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-pink-500"></i> Cocktail exclusivo na Shibuya Sky Rooftop Bar</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-pink-500"></i> Guia privativo bilingue à disposição</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openBookingModal('Shibuya Lights & Hotel 5★')" class="w-full py-4 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white rounded-2xl font-bold transition duration-300 shadow-lg shadow-pink-600/40 text-center">
+                        Reservar Pacote VIP
                     </button>
                 </div>
 
                 <!-- Pacote 3 -->
-                <div data-aos="fade-up" data-aos-delay="300" class="glass rounded-3xl p-8 border border-white/10 hover:border-red-500/50 transition duration-300 bg-white/5 backdrop-blur-md">
-                    <h3 class="text-2xl font-bold">Fotografia Profissional</h3>
-                    <p class="text-gray-400 text-sm mt-2">Ensaio fotográfico privativo em Shibuya.</p>
+                <div data-aos="fade-up" data-aos-delay="300" class="glass-card rounded-3xl p-8 border border-white/10 hover:border-pink-500/40 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <span class="bg-pink-500/20 text-pink-400 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-pink-500/30">Cultura Pop & Nightlife</span>
+                        <h3 class="text-2xl font-bold mt-5">Cyberpunk Night Crawl</h3>
+                        <p class="text-gray-400 text-sm mt-2">Tour noturno pelos bares secretos, retro arcades e clubes de Shibuya.</p>
 
-                    <div class="my-6">
-                        <span class="text-4xl font-extrabold">R$ 1.200</span>
-                        <span class="text-gray-400">/ sessão</span>
+                        <div class="my-6">
+                            <span class="text-4xl font-extrabold text-white">R$ 1.150</span>
+                            <span class="text-gray-400 text-sm">/ pessoa</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-gray-300 text-sm mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-pink-500"></i> Degustação de sakês e street foods</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-pink-500"></i> Acesso aos pubs e arcades mais icônicos</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-pink-500"></i> Fotos profissionais sob as luzes neon</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-pink-500"></i> Kit de transporte e passes de metrô integrados</li>
+                        </ul>
                     </div>
 
-                    <ul class="space-y-4 mb-8 text-gray-300 text-sm">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Fotógrafo profissional por 2 horas</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Fotos editadas em alta resolução</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Locações no Cruzamento e Shibuya Sky</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Entrega digital em até 48h</li>
-                    </ul>
-
-                    <button class="w-full py-4 border border-red-500 text-red-500 rounded-2xl font-bold hover:bg-red-600 hover:text-white transition">
-                        Reservar Ensaio
+                    <button onclick="openBookingModal('Cyberpunk Night Crawl')" class="w-full py-3.5 border border-pink-500/80 text-pink-400 hover:bg-pink-600 hover:text-white rounded-2xl font-bold transition duration-300 text-center">
+                        Reservar Night Crawl
                     </button>
                 </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- ================= GALERIA (SWIPER) ================= -->
-    <section id="galeria" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-8">
-            <h2 data-aos="fade-up" class="text-center text-4xl md:text-5xl font-bold mb-16">
-                Galeria de <span class="text-red-500">Shibuya</span>
-            </h2>
+    <!-- ========================= GALERIA ========================= -->
+    <section id="galeria" class="py-24 relative z-10 bg-slate-900/60 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
 
-            <div data-aos="zoom-in" class="swiper mySwiper rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="bg-pink-500/20 text-pink-400 border border-pink-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+                    Inspiração Urbana
+                </span>
+                <h2 class="text-4xl sm:text-5xl font-extrabold mt-4">
+                    Galeria <span class="text-pink-500">Shibuya</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-base sm:text-lg">
+                    Sinta a atmosfera através das imagens capturadas por nossos viajantes em Tóquio.
+                </p>
+            </div>
+
+            <div class="swiper mySwiper rounded-3xl overflow-hidden shadow-2xl border border-white/10" data-aos="zoom-in">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide h-[500px]">
-                        <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover" alt="Shibuya Crossing">
+
+                    <div class="swiper-slide h-[380px] sm:h-[500px]">
+                        <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1920&q=80"
+                            alt="Shramble Crossing ilimitado" class="w-full h-full object-cover">
                     </div>
-                    <div class="swiper-slide h-[500px]">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUjtmXp0GY1W6gSjF1FbJ3wV7w6ePoc40VweDkEFv0kg&s=10" class="w-full h-full object-cover" alt="Shibuya Noturna">
+
+                    <div class="swiper-slide h-[380px] sm:h-[500px]">
+                        <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1920&q=80"
+                            alt="Vista Aérea de Shibuya" class="w-full h-full object-cover">
                     </div>
-                    <div class="swiper-slide h-[500px]">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCGMbUuux6euig6lhcRPq0YOMU8jFt5OJ_0vzRMYEDvg&s=10" class="w-full h-full object-cover" alt="Neons em Shibuya">
+
+                    <div class="swiper-slide h-[380px] sm:h-[500px]">
+                        <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1920&q=80"
+                            alt="Ruas iluminadas por Neon em Shibuya" class="w-full h-full object-cover">
                     </div>
+
                 </div>
 
-                <div class="swiper-button-next text-red-500"></div>
-                <div class="swiper-button-prev text-red-500"></div>
                 <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
+
         </div>
     </section>
 
-    <!-- ================= RODAPÉ ================= -->
-    <footer class="bg-black/60 border-t border-white/10 py-12 relative z-10">
-        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-4 gap-8 mb-12">
+    <!-- ========================= FOOTER ========================= -->
+    <footer class="border-t border-white/10 py-12 relative z-10 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 grid md:grid-cols-4 gap-8 mb-12">
+
             <div>
-                <a href="index.html" class="flex items-center gap-3 mb-4">
-                    <i class="fa-solid fa-torii-gate text-red-500 text-2xl"></i>
-                    <h2 class="text-2xl font-bold">Start<span class="text-red-500">Tour</span></h2>
+                <a href="#" class="flex items-center gap-3 mb-4">
+                    <i class="fa-solid fa-bolt text-pink-500 text-2xl"></i>
+                    <span class="text-2xl font-bold">Start<span class="text-pink-500">Tour</span></span>
                 </a>
                 <p class="text-gray-400 text-sm leading-relaxed">
-                    Sua agência especialista em transformar sonhos de viagem ao Japão em realidade.
+                    Sua agência especialista em transformar suas viagens ao Japão em experiências inesquecíveis.
                 </p>
             </div>
 
             <div>
-                <h4 class="font-bold text-lg mb-4">Navegação</h4>
+                <h4 class="font-bold text-lg mb-4 text-white">Navegação</h4>
                 <ul class="space-y-2 text-gray-400 text-sm">
-                    <li><a href="#sobre" class="hover:text-red-500 transition">Sobre Nós</a></li>
-                    <li><a href="#experiencias" class="hover:text-red-500 transition">Experiências</a></li>
-                    <li><a href="#pacotes" class="hover:text-red-500 transition">Pacotes</a></li>
-                    <li><a href="#galeria" class="hover:text-red-500 transition">Galeria</a></li>
+                    <li><a href="#sobre" class="hover:text-pink-500 transition">Sobre Shibuya</a></li>
+                    <li><a href="#atracoes" class="hover:text-pink-500 transition">Atrações Principais</a></li>
+                    <li><a href="#pacotes" class="hover:text-pink-500 transition">Pacotes & Preços</a></li>
+                    <li><a href="#galeria" class="hover:text-pink-500 transition">Galeria Urbana</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="font-bold text-lg mb-4">Contato</h4>
+                <h4 class="font-bold text-lg mb-4 text-white">Contato</h4>
                 <ul class="space-y-2 text-gray-400 text-sm">
-                    <li><i class="fa-solid fa-envelope text-red-500 mr-2"></i> contato@starttour.com</li>
-                    <li><i class="fa-solid fa-phone text-red-500 mr-2"></i> +55 (11) 99999-9999</li>
-                    <li><i class="fa-solid fa-location-dot text-red-500 mr-2"></i> São Paulo - SP</li>
+                    <li><i class="fa-solid fa-envelope text-pink-500 mr-2"></i> contato@starttour.com</li>
+                    <li><i class="fa-solid fa-phone text-pink-500 mr-2"></i> +55 (11) 99999-9999</li>
+                    <li><i class="fa-solid fa-location-dot text-pink-500 mr-2"></i> São Paulo - SP, Brasil</li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="font-bold text-lg mb-4">Redes Sociais</h4>
+                <h4 class="font-bold text-lg mb-4 text-white">Redes Sociais</h4>
                 <div class="flex gap-4 text-xl">
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-red-600 transition"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-red-600 transition"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-red-600 transition"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-pink-600 hover:border-pink-600 transition"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
+
         </div>
 
-        <div class="text-center text-gray-500 text-sm border-t border-white/5 pt-8">
+        <div class="text-center text-gray-500 text-sm border-t border-white/5 pt-8 max-w-7xl mx-auto px-6">
             <p>&copy; StartTour. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- Scripts Externos -->
+    <!-- Reservation Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full p-8 rounded-3xl border border-white/20 relative shadow-2xl">
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-2xl font-bold text-white mb-2" id="modalPackageName">Reserva de Pacote</h3>
+            <p class="text-gray-300 text-sm mb-6">Preencha seus dados para solicitar orçamento e disponibilidade para Shibuya.</p>
+
+            <form onsubmit="handleReservation(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1 uppercase">Nome Completo</label>
+                    <input type="text" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-pink-500 placeholder-gray-500" placeholder="Seu nome">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1 uppercase">E-mail</label>
+                    <input type="email" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-pink-500 placeholder-gray-500" placeholder="seuemail@exemplo.com">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1 uppercase">Telefone / WhatsApp</label>
+                    <input type="tel" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-pink-500 placeholder-gray-500" placeholder="(11) 99999-9999">
+                </div>
+
+                <div id="modalFeedback" class="hidden p-3 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-sm text-center">
+                    <i class="fa-solid fa-circle-check mr-2"></i> Solicitação enviada com sucesso! Entraremos em contato em breve.
+                </div>
+
+                <button id="submitBtn" type="submit" class="w-full bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-pink-600/40 mt-4">
+                    Confirmar Solicitação
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Scripts Internos do Projeto -->
-    <script src="js/particles.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/chatbot.js"></script>
-    <script src="js/slider.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // AOS Init
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+
+            // Swiper Init
+            const swiper = new Swiper('.mySwiper', {
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+            // Particles.js Init
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS("particles-js", {
+                    "particles": {
+                        "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+                        "color": { "value": "#ec4899" },
+                        "shape": { "type": "circle" },
+                        "opacity": { "value": 0.4, "random": true },
+                        "size": { "value": 3, "random": true },
+                        "line_linked": { "enable": false },
+                        "move": { "enable": true, "speed": 1.2, "direction": "top-right", "random": true, "straight": false, "out_mode": "out" }
+                    },
+                    "interactivity": { "events": { "onhover": { "enable": false } } },
+                    "retina_detect": true
+                });
+            }
+
+            // Animated Counters Script
+            const counters = document.querySelectorAll('.counter');
+            let animated = false;
+
+            window.addEventListener('scroll', () => {
+                const sobreSection = document.getElementById('sobre');
+                if (!sobreSection) return;
+
+                const sectionPos = sobreSection.getBoundingClientRect().top;
+                const screenPos = window.innerHeight;
+
+                if (sectionPos < screenPos && !animated) {
+                    animated = true;
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += step;
+                            if (current < target) {
+                                counter.innerText = Math.ceil(current).toLocaleString('pt-BR');
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.innerText = target.toLocaleString('pt-BR');
+                            }
+                        };
+                        updateCounter();
+                    });
+                }
+            });
+        });
+
+        // Booking Modal functions
+        function openBookingModal(packageName) {
+            document.getElementById('modalPackageName').innerText = 'Reserva: ' + packageName;
+            document.getElementById('modalFeedback').classList.add('hidden');
+            document.getElementById('submitBtn').classList.remove('hidden');
+            document.getElementById('bookingModal').classList.remove('hidden');
+            document.getElementById('bookingModal').classList.add('flex');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+            document.getElementById('bookingModal').classList.remove('flex');
+        }
+
+        function handleReservation(e) {
+            e.preventDefault();
+            const feedback = document.getElementById('modalFeedback');
+            const submitBtn = document.getElementById('submitBtn');
+
+            submitBtn.classList.add('hidden');
+            feedback.classList.remove('hidden');
+
+            setTimeout(() => {
+                closeBookingModal();
+                e.target.reset();
+            }, 2500);
+        }
+    </script>
 
 </body>
 

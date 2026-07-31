@@ -1,272 +1,768 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Osaka | StartTour</title>
+    <meta name="description"
+        content="Descubra a capital gastronômica do Japão com a StartTour. Pacotes para Osaka, Dotonbori, Castelo de Osaka, Universal Studios Japan e vida noturna.">
 
-    <!-- Tailwind -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Font Awesome -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <!-- AOS -->
+    <!-- AOS (Animate On Scroll) -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #f97316 !important;
+            background: rgba(0, 0, 0, 0.6);
+            width: 48px !important;
+            height: 48px !important;
+            border-radius: 50%;
+            backdrop-filter: blur(4px);
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px !important;
+            font-weight: bold;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #f97316 !important;
+            width: 24px !important;
+            border-radius: 999px !important;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ea580c;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c2410c;
+        }
+    </style>
 </head>
 
-<body class="bg-slate-950 text-white">
+<body class="bg-slate-950 text-white overflow-x-hidden font-['Poppins'] relative">
 
-    <div id="particles-js"></div>
+    <!-- Particles Background Canvas container -->
+    <div id="particles-js" class="fixed inset-0 pointer-events-none z-0"></div>
 
-    <!-- ================= NAVBAR ================= -->
-
-    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/30 border-b border-white/10">
-
-        <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-5">
-
+    <!-- ========================= NAVBAR ========================= -->
+    <nav
+        class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/40 border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-8 py-4">
             <a href="index.html" class="flex items-center gap-3">
-
                 <i class="fa-solid fa-torii-gate text-red-500 text-3xl"></i>
-
-                <h1 class="text-3xl font-bold">
-                    Start<span class="text-red-500">Tour</span>
+                <h1 class="font-bold text-3xl tracking-widest">
+                    Takumi<span class="text-red-500">Tour</span>
                 </h1>
-
             </a>
-
-            <ul class="hidden md:flex gap-8">
-
-                <li><a href="index.html">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#atracoes">Atrações</a></li>
-                <li><a href="#pacotes">Pacotes</a></li>
-                <li><a href="#galeria">Galeria</a></li>
-
+            <ul class="hidden lg:flex items-center gap-8 text-base font-medium">
+                <li><a href="#" class="hover:text-orange-500 transition duration-200">Início</a></li>
+                <li><a href="#sobre" class="hover:text-orange-500 transition duration-200">Sobre</a></li>
+                <li><a href="#atracoes" class="hover:text-orange-500 transition duration-200">Atrações</a></li>
+                <li><a href="#pacotes" class="hover:text-orange-500 transition duration-200">Pacotes</a></li>
+                <li><a href="#galeria" class="hover:text-orange-500 transition duration-200">Galeria</a></li>
             </ul>
 
-            <a href="#pacotes">
-                <button class="bg-red-600 px-6 py-3 rounded-full hover:scale-105 transition">
-                    Reservar
-                </button>
-            </a>
-
+            <div class="flex items-center gap-4">
+                <a href="#pacotes"
+                    class="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 hover:scale-105 active:scale-95 transition duration-300 px-6 py-2.5 rounded-full font-semibold text-sm md:text-base shadow-lg shadow-orange-600/30 inline-flex items-center gap-2">
+                    <i class="fa-solid fa-ticket text-sm"></i>
+                    Reservar Agora
+                </a>
+            </div>
         </div>
-
     </nav>
 
-    <!-- ================= HERO ================= -->
+    <!-- ========================= HERO ========================= -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=2000&q=80"
+            alt="Ruas Iluminadas de Dotonbori em Osaka à noite"
+            class="absolute inset-0 w-full h-full object-cover brightness-50 scale-105 animate-pulse"
+            style="animation-duration: 12s;">
 
-    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-slate-950"></div>
 
-        <img src="assets/imagens/osaka-banner.jpg" class="absolute w-full h-full object-cover brightness-50">
+        <div class="relative z-10 text-center px-6 max-w-5xl py-12">
+            <span data-aos="fade-down"
+                class="inline-block bg-orange-500/20 text-orange-400 border border-orange-500/40 px-5 py-2 rounded-full uppercase tracking-[4px] text-xs md:text-sm font-semibold mb-6">
+                <i class="fa-solid fa-bowl-food mr-2"></i> A Capital Gastronômica do Japão
+            </span>
 
-        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-slate-950"></div>
-
-        <div class="relative text-center max-w-5xl px-6">
-
-            <h1 data-aos="fade-up" class="text-7xl md:text-8xl font-extrabold">
-
-                OSAKA
-
+            <h1 data-aos="fade-up"
+                class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight drop-shadow-2xl">
+                OSAKA <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-400 to-red-500">JAPAN</span>
             </h1>
 
-            <p data-aos="fade-up" data-aos-delay="300" class="mt-8 text-2xl text-gray-200">
-
-                Gastronomia, diversão, cultura e uma das cidades mais vibrantes do Japão.
-
+            <p data-aos="fade-up" data-aos-delay="200"
+                class="mt-8 text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-light">
+                Gastronomia lendária, parques temáticos mundiais, castelos centenários e a hospitalidade mais calorosa
+                de todo o Japão.
             </p>
 
-            <div data-aos="zoom-in" data-aos-delay="600" class="mt-12">
-
-                <a href="#pacotes">
-
-                    <button class="bg-red-600 px-10 py-4 rounded-full font-bold">
-
-                        Ver Pacotes
-
-                    </button>
-
+            <div class="mt-10 flex flex-wrap justify-center gap-5" data-aos="zoom-in" data-aos-delay="400">
+                <a href="#pacotes"
+                    class="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 hover:scale-105 transition duration-300 px-9 py-4 rounded-full font-bold text-lg shadow-xl shadow-orange-600/40 inline-flex items-center gap-3">
+                    <i class="fa-solid fa-compass"></i> Ver Pacotes
                 </a>
 
+                <a href="#galeria"
+                    class="glass hover:bg-white/10 hover:border-white/30 hover:scale-105 transition duration-300 px-9 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3">
+                    <i class="fa-solid fa-images"></i> Galeria Urbana
+                </a>
             </div>
-
         </div>
-
     </header>
 
-    <!-- ================= SOBRE ================= -->
+    <!-- ========================= SOBRE ========================= -->
+    <section id="sobre" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 grid lg:grid-cols-2 gap-16 items-center">
 
-    <section id="sobre" class="py-24">
-
-        <div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-16 items-center">
-
-            <div data-aos="fade-right">
-
-                <img src="assets/imagens/osaka.jpg" class="rounded-3xl shadow-2xl">
-
+            <div data-aos="fade-right" class="relative">
+                <div class="absolute -top-4 -left-4 w-72 h-72 bg-orange-600/20 rounded-full blur-3xl -z-10"></div>
+                <img src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?auto=format&fit=crop&w=1000&q=80"
+                    alt="Castelo de Osaka e Cerejeiras"
+                    class="rounded-3xl shadow-2xl border border-white/10 w-full h-[520px] object-cover hover:scale-[1.02] transition duration-500">
             </div>
 
             <div data-aos="fade-left">
-
-                <span class="badge">
-
-                    Cidade da Gastronomia
-
+                <span
+                    class="inline-block bg-orange-600/20 text-orange-400 border border-orange-500/30 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
+                    Cidade da Gastronomia & Cultura
                 </span>
 
-                <h2 class="text-5xl font-bold mt-6">
-
-                    Conheça Osaka
-
+                <h2 class="text-4xl sm:text-5xl font-extrabold mt-6 leading-tight">
+                    Conheça a Energia de <span class="text-orange-500">Osaka</span>
                 </h2>
 
-                <p class="mt-8 text-gray-300 leading-8">
-
-                    Osaka é conhecida por sua energia contagiante, culinária
-                    famosa, ruas iluminadas e atrações para todas as idades.
-                    É um dos destinos mais visitados do Japão e combina
-                    história, entretenimento e modernidade.
-
+                <p class="mt-6 text-gray-300 leading-relaxed text-base sm:text-lg">
+                    Osaka é famosa por sua alma acolhedora, atmosfera festiva e a filosofia do <em>Kuidaore</em> (comer
+                    até não aguentar mais!). Como o segundo maior centro financeiro do país, une a elegância histórica
+                    de samurais à euforia dos néons modernos.
                 </p>
 
-                <p class="mt-6 text-gray-300 leading-8">
-
-                    Além do famoso Castelo de Osaka, a cidade abriga
-                    o bairro de Dotonbori, a Universal Studios Japan,
-                    o Aquário Kaiyukan e diversas áreas comerciais
-                    como Shinsaibashi.
-
+                <p class="mt-4 text-gray-300 leading-relaxed text-base sm:text-lg">
+                    Caminhe pelo canal iluminado de *Dotonbori*, divirta-se nos cenários mágicos do *Universal Studios
+                    Japan*, saboreie o legítimo *Takoyaki* preparado na hora e encante-se com os imponentes portões do
+                    *Castelo de Osaka*.
                 </p>
 
+                <!-- Statistics counter cards -->
                 <div class="grid grid-cols-2 gap-6 mt-10">
-
-                    <div class="glass p-6 rounded-2xl text-center">
-
-                        <h3 class="counter text-5xl font-bold text-red-500" data-target="19">
-
-                            0
-
-                        </h3>
-
-                        <p class="mt-3">
-
-                            Milhões de visitantes/ano
-
-                        </p>
-
+                    <div
+                        class="glass-card p-6 rounded-2xl text-center border border-white/10 shadow-xl hover:border-orange-500/40 transition">
+                        <h3 class="counter text-4xl sm:text-5xl font-black text-orange-500" data-target="19">0</h3>
+                        <p class="mt-2 text-gray-300 text-sm sm:text-base font-medium">Milhões de Visitantes/Ano</p>
                     </div>
 
-                    <div class="glass p-6 rounded-2xl text-center">
+                    <div
+                        class="glass-card p-6 rounded-2xl text-center border border-white/10 shadow-xl hover:border-orange-500/40 transition">
+                        <h3 class="counter text-4xl sm:text-5xl font-black text-orange-500" data-target="6">0</h3>
+                        <p class="mt-2 text-gray-300 text-sm sm:text-base font-medium">Dias Ideais de Viagem</p>
+                    </div>
+                </div>
+            </div>
 
-                        <h3 class="counter text-5xl font-bold text-red-500" data-target="6">
+        </div>
+    </section>
 
-                            0
+    <!-- ========================= ATRAÇÕES ========================= -->
+    <section id="atracoes" class="py-24 relative z-10 bg-slate-900/60 backdrop-blur-sm border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
 
-                        </h3>
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span
+                    class="bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+                    Roteiro Completo
+                </span>
+                <h2 class="text-4xl sm:text-5xl font-extrabold mt-4">
+                    Principais <span class="text-orange-500">Atrações</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-base sm:text-lg">
+                    Das fortalezas dos grandes xoguns aos néons mais vibrantes do canal de Dotonbori.
+                </p>
+            </div>
 
-                        <p class="mt-3">
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
 
-                            Dias de viagem
+                <!-- Atração 1: Castelo de Osaka -->
+                <div data-aos="fade-up" data-aos-delay="100"
+                    class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?auto=format&fit=crop&w=800&q=80"
+                                alt="Castelo de Osaka"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span
+                                class="absolute top-4 left-4 bg-orange-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Histórico</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-400 transition">Castelo de Osaka
+                            </h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Um dos marcos mais famosos do Japão, construído no século XVI e cercado por fossos
+                                d'água e jardins com centenas de cerejeiras.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-                        </p>
+                <!-- Atração 2: Dotonbori -->
+                <div data-aos="fade-up" data-aos-delay="200"
+                    class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=800&q=80"
+                                alt="Distrito de Dotonbori"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span
+                                class="absolute top-4 left-4 bg-orange-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Gastronomia
+                                & Neon</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-400 transition">Canal de
+                                Dotonbori</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                O coração da vida noturna e do street food. Tire a icônica foto com o homem da Glico e
+                                saboreie Takoyaki e Okonomiyaki frescos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Atração 3: Universal Studios Japan -->
+                <div data-aos="fade-up" data-aos-delay="300"
+                    class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=800&q=80"
+                                alt="Universal Studios Japan"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span
+                                class="absolute top-4 left-4 bg-orange-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Diversão
+                                & Parques</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-400 transition">Universal Studios
+                                Japan</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Explore a espetacular área de *Super Nintendo World* e viva aventuras no Mundo Mágico de
+                                Harry Potter com atrações interativas únicas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atração 4: Aquário Kaiyukan -->
+                <div data-aos="fade-up" data-aos-delay="400"
+                    class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvrdYuX0DN_Dln0P1Q3kHGkgwB_E3I2VqgBazr4I0MKw&s=10"
+                                alt="Aquário Kaiyukan"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span
+                                class="absolute top-4 left-4 bg-orange-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Vida
+                                Marinha</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-400 transition">Aquário Kaiyukan
+                            </h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Um dos maiores aquários do mundo, abrigando tubarões-baleia impressionantes, pinguins e
+                                ecossistemas do Círculo de Fogo do Pacífico.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atração 5: Shinsekai & Tsutenkaku -->
+                <div data-aos="fade-up" data-aos-delay="500"
+                    class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaQzpo3bHWct7BMXL8F9iD-l6i0K3GXvx7gOLxlFG7HQ&s=10"
+                                alt="Bairro Shinsekai em Osaka"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span
+                                class="absolute top-4 left-4 bg-orange-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Nostalgia
+                                Retrô</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-400 transition">Bairro Shinsekai
+                            </h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Um bairro nostálgico desenvolvido no início do século XX com a famosa Torre Tsutenkaku e
+                                dezenas de restaurantes servindo *Kushikatsu*.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atração 6: Umeda Sky Building -->
+                <div data-aos="fade-up" data-aos-delay="600"
+                    class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=800&q=80"
+                                alt="Umeda Sky Building"
+                                class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span
+                                class="absolute top-4 left-4 bg-orange-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Arquitetura</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-400 transition">Umeda Sky
+                                Building</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Duas torres conectadas por um observatório aéreo circular flutuante a 173 metros de
+                                altura, com vista incrível de toda a metrópole.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================= PACOTES ========================= -->
+    <section id="pacotes" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span
+                    class="bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+                    Experiências Inesquecíveis
+                </span>
+                <h2 class="text-4xl sm:text-5xl font-extrabold mt-4">
+                    Pacotes <span class="text-orange-500">Osaka Tour</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-base sm:text-lg">
+                    Escolha o roteiro ideal para sua viagem: gastronomia, parques de diversão ou estadia de luxo.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+
+                <!-- Pacote 1 -->
+                <div data-aos="fade-up" data-aos-delay="100"
+                    class="glass-card rounded-3xl p-8 border border-white/10 hover:border-orange-500/40 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <span
+                            class="bg-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-orange-500/30">Tour
+                            Gastronômico</span>
+                        <h3 class="text-2xl font-bold mt-5">Osaka Street Food Express</h3>
+                        <p class="text-gray-400 text-sm mt-2">1 dia de aula prática e circuito gastronômico em Dotonbori
+                            e Shinsekai.</p>
+
+                        <div class="my-6">
+                            <span class="text-4xl font-extrabold text-white">R$ 820</span>
+                            <span class="text-gray-400 text-sm">/ pessoa</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-gray-300 text-sm mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-orange-500"></i>
+                                Degustação guiada de 7 iguarias típicas</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-orange-500"></i>
+                                Workshop exclusivo de feitura de Takoyaki</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-orange-500"></i>
+                                Cruzeiro noturno no Canal de Dotonbori</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-orange-500"></i>
+                                Guia local especialista em culinária</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openBookingModal('Osaka Street Food Express')"
+                        class="w-full py-3.5 border border-orange-500/80 text-orange-400 hover:bg-orange-600 hover:text-white rounded-2xl font-bold transition duration-300 text-center">
+                        Reservar Passeio
+                    </button>
+                </div>
+
+                <!-- Pacote 2 (Destaque) -->
+                <div data-aos="fade-up" data-aos-delay="200"
+                    class="glass-card rounded-3xl p-8 border-2 border-orange-500 relative flex flex-col justify-between bg-gradient-to-b from-orange-950/40 via-slate-900/90 to-slate-950 scale-105 shadow-2xl shadow-orange-900/20">
+                    <div
+                        class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-600 to-red-600 text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg">
+                        Mais Popular
+                    </div>
+
+                    <div>
+                        <span
+                            class="bg-orange-500 text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full">Gourmet
+                            & Ryokan VIP</span>
+                        <h3 class="text-2xl font-bold mt-5">Osaka VIP Experience</h3>
+                        <p class="text-gray-300 text-sm mt-2">3 dias / 2 noites com hospedagem em hotel 5 estrelas e
+                            passeio de helicóptero.</p>
+
+                        <div class="my-6">
+                            <span class="text-4xl font-extrabold text-orange-500">R$ 2.950</span>
+                            <span class="text-gray-400 text-sm">/ pessoa</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-gray-200 text-sm mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-orange-500"></i>
+                                Hospedagem de luxo central em Namba</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-orange-500"></i>
+                                Jantar privado de Kobe Beef harmonizado</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-orange-500"></i>
+                                Voo panormâmico de helicóptero pela baía</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-orange-500"></i>
+                                Ingresso VIP sem filas no Castelo e Umeda Sky</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openBookingModal('Osaka VIP Experience')"
+                        class="w-full py-4 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white rounded-2xl font-bold transition duration-300 shadow-lg shadow-orange-600/40 text-center">
+                        Reservar Pacote VIP
+                    </button>
+                </div>
+
+                <!-- Pacote 3 -->
+                <div data-aos="fade-up" data-aos-delay="300"
+                    class="glass-card rounded-3xl p-8 border border-white/10 hover:border-orange-500/40 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <span
+                            class="bg-orange-500/20 text-orange-400 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-orange-500/30">Diversão
+                            em Família</span>
+                        <h3 class="text-2xl font-bold mt-5">Universal & Fantasy World</h3>
+                        <p class="text-gray-400 text-sm mt-2">2 dias inteiros focados em parques temáticos e
+                            entretenimento.</p>
+
+                        <div class="my-6">
+                            <span class="text-4xl font-extrabold text-white">R$ 1.850</span>
+                            <span class="text-gray-400 text-sm">/ pessoa</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-gray-300 text-sm mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-orange-500"></i>
+                                Ingresso Universal Express Pass 7 atrações</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-orange-500"></i>
+                                Acesso garantido ao Super Nintendo World</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-orange-500"></i>
+                                Transfer privado de/para o seu hotel</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-orange-500"></i>
+                                Entradas para o Aquário Kaiyukan</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openBookingModal('Universal & Fantasy World')"
+                        class="w-full py-3.5 border border-orange-500/80 text-orange-400 hover:bg-orange-600 hover:text-white rounded-2xl font-bold transition duration-300 text-center">
+                        Reservar Parques
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================= GALERIA ========================= -->
+    <section id="galeria" class="py-24 relative z-10 bg-slate-900/60 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span
+                    class="bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+                    Sinta a Energia
+                </span>
+                <h2 class="text-4xl sm:text-5xl font-extrabold mt-4">
+                    Galeria <span class="text-orange-500">Osaka</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-base sm:text-lg">
+                    Confira imagens impressionantes capturadas em nossas expedições por Osaka.
+                </p>
+            </div>
+
+            <div class="swiper mySwiper rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+                data-aos="zoom-in">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide h-[380px] sm:h-[500px]">
+                        <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=1920&q=80"
+                            alt="Dotonbori ilimitado em Osaka" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="swiper-slide h-[380px] sm:h-[500px]">
+                        <img src="https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?auto=format&fit=crop&w=1920&q=80"
+                            alt="Castelo de Osaka" class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="swiper-slide h-[380px] sm:h-[500px]">
+                        <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=1920&q=80"
+                            alt="Arquitetura de Osaka" class="w-full h-full object-cover">
                     </div>
 
                 </div>
 
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
 
         </div>
-
     </section>
 
-    <!-- ================= ATRAÇÕES ================= -->
+    <!-- ========================= FOOTER ========================= -->
+    <footer class="border-t border-white/10 py-12 relative z-10 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 grid md:grid-cols-4 gap-8 mb-12">
 
-    <section id="atracoes" class="py-24">
-
-        <div class="max-w-7xl mx-auto">
-
-            <h2 class="text-center text-5xl font-bold mb-16">
-
-                Principais Atrações
-
-            </h2>
-
-            <div class="grid md:grid-cols-3 gap-10 px-8">
-
-                <!-- Na Parte 2 serão adicionados os cards de:
-     - Castelo de Osaka
-     - Dotonbori
-     - Universal Studios Japan
-     - Aquário Kaiyukan
-     - Shinsaibashi
-     - Umeda Sky Building -->
-
+            <div>
+                <a href="#" class="flex items-center gap-3 mb-4">
+                    <i class="fa-solid fa-utensils text-orange-500 text-2xl"></i>
+                    <span class="text-2xl font-bold">Start<span class="text-orange-500">Tour</span></span>
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Sua agência especialista em transformar suas viagens ao Japão em momentos inesquecíveis.
+                </p>
             </div>
 
-        </div>
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-white">Navegação</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="#sobre" class="hover:text-orange-500 transition">Sobre Osaka</a></li>
+                    <li><a href="#atracoes" class="hover:text-orange-500 transition">Atrações Principais</a></li>
+                    <li><a href="#pacotes" class="hover:text-orange-500 transition">Pacotes & Preços</a></li>
+                    <li><a href="#galeria" class="hover:text-orange-500 transition">Galeria de Fotos</a></li>
+                </ul>
+            </div>
 
-    </section>
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-white">Contato</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><i class="fa-solid fa-envelope text-orange-500 mr-2"></i> contato@starttour.com</li>
+                    <li><i class="fa-solid fa-phone text-orange-500 mr-2"></i> +55 (11) 99999-9999</li>
+                    <li><i class="fa-solid fa-location-dot text-orange-500 mr-2"></i> São Paulo - SP, Brasil</li>
+                </ul>
+            </div>
 
-    <!-- ================= PACOTES ================= -->
-
-    <section id="pacotes" class="py-24 bg-white/5">
-
-        <div class="max-w-7xl mx-auto px-8 text-center">
-
-            <h2 class="text-5xl font-bold mb-6">Pacotes de Osaka</h2>
-
-            <p class="text-gray-300 max-w-3xl mx-auto">
-                Descubra nossos pacotes completos com hospedagem, passeios e experiências em Osaka.
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- ================= GALERIA ================= -->
-
-    <section id="galeria" class="py-24">
-
-        <div class="max-w-7xl mx-auto px-8 text-center">
-
-            <h2 class="text-5xl font-bold mb-6">Galeria</h2>
-
-            <p class="text-gray-300 max-w-3xl mx-auto mb-10">
-                Veja os melhores momentos que você pode viver em Osaka.
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="rounded-3xl overflow-hidden">
-                    <img src="assets/imagens/osaka-galeria-1.jpg" alt="Osaka" class="w-full h-64 object-cover">
-                </div>
-                <div class="rounded-3xl overflow-hidden">
-                    <img src="assets/imagens/osaka-galeria-2.jpg" alt="Dotonbori" class="w-full h-64 object-cover">
-                </div>
-                <div class="rounded-3xl overflow-hidden">
-                    <img src="assets/imagens/osaka-galeria-3.jpg" alt="Castelo de Osaka" class="w-full h-64 object-cover">
+            <div>
+                <h4 class="font-bold text-lg mb-4 text-white">Redes Sociais</h4>
+                <div class="flex gap-4 text-xl">
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-600 hover:border-orange-600 transition"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-600 hover:border-orange-600 transition"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"
+                        class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-orange-600 hover:border-orange-600 transition"><i
+                            class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
 
         </div>
 
-    </section>
+        <div class="text-center text-gray-500 text-sm border-t border-white/5 pt-8 max-w-7xl mx-auto px-6">
+            <p>&copy; StartTour. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
+    <!-- Reservation Modal -->
+    <div id="bookingModal"
+        class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full p-8 rounded-3xl border border-white/20 relative shadow-2xl">
+            <button onclick="closeBookingModal()"
+                class="absolute top-5 right-5 text-gray-400 hover:text-white text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-2xl font-bold text-white mb-2" id="modalPackageName">Reserva de Pacote</h3>
+            <p class="text-gray-300 text-sm mb-6">Preencha seus dados para solicitar o orçamento e disponibilidade para
+                Osaka.</p>
+
+            <form onsubmit="handleReservation(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1 uppercase">Nome Completo</label>
+                    <input type="text" required
+                        class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 placeholder-gray-500"
+                        placeholder="Seu nome">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1 uppercase">E-mail</label>
+                    <input type="email" required
+                        class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 placeholder-gray-500"
+                        placeholder="seuemail@exemplo.com">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1 uppercase">Telefone / WhatsApp</label>
+                    <input type="tel" required
+                        class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500 placeholder-gray-500"
+                        placeholder="(11) 99999-9999">
+                </div>
+
+                <div id="modalFeedback"
+                    class="hidden p-3 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-sm text-center">
+                    <i class="fa-solid fa-circle-check mr-2"></i> Solicitação enviada com sucesso! Entraremos em contato
+                    em breve.
+                </div>
+
+                <button id="submitBtn" type="submit"
+                    class="w-full bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-500 hover:to-red-500 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-orange-600/40 mt-4">
+                    Confirmar Solicitação
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <script src="js/app.js"></script>
-    <script src="js/chatbot.js"></script>
-    <script src="js/slider.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // AOS Init
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+
+            // Swiper Init
+            const swiper = new Swiper('.mySwiper', {
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+            // Particles.js Init
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS("particles-js", {
+                    "particles": {
+                        "number": { "value": 45, "density": { "enable": true, "value_area": 800 } },
+                        "color": { "value": "#f97316" },
+                        "shape": { "type": "circle" },
+                        "opacity": { "value": 0.35, "random": true },
+                        "size": { "value": 3, "random": true },
+                        "line_linked": { "enable": false },
+                        "move": { "enable": true, "speed": 1.2, "direction": "top-left", "random": true, "straight": false, "out_mode": "out" }
+                    },
+                    "interactivity": { "events": { "onhover": { "enable": false } } },
+                    "retina_detect": true
+                });
+            }
+
+            // Animated Counters Script
+            const counters = document.querySelectorAll('.counter');
+            let animated = false;
+
+            window.addEventListener('scroll', () => {
+                const sobreSection = document.getElementById('sobre');
+                if (!sobreSection) return;
+
+                const sectionPos = sobreSection.getBoundingClientRect().top;
+                const screenPos = window.innerHeight;
+
+                if (sectionPos < screenPos && !animated) {
+                    animated = true;
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += step;
+                            if (current < target) {
+                                counter.innerText = Math.ceil(current).toLocaleString('pt-BR');
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.innerText = target.toLocaleString('pt-BR');
+                            }
+                        };
+                        updateCounter();
+                    });
+                }
+            });
+        });
+
+        // Booking Modal functions
+        function openBookingModal(packageName) {
+            document.getElementById('modalPackageName').innerText = 'Reserva: ' + packageName;
+            document.getElementById('modalFeedback').classList.add('hidden');
+            document.getElementById('submitBtn').classList.remove('hidden');
+            document.getElementById('bookingModal').classList.remove('hidden');
+            document.getElementById('bookingModal').classList.add('flex');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+            document.getElementById('bookingModal').classList.remove('flex');
+        }
+
+        function handleReservation(e) {
+            e.preventDefault();
+            const feedback = document.getElementById('modalFeedback');
+            const submitBtn = document.getElementById('submitBtn');
+
+            submitBtn.classList.add('hidden');
+            feedback.classList.remove('hidden');
+
+            setTimeout(() => {
+                closeBookingModal();
+                e.target.reset();
+            }, 2500);
+        }
+    </script>
 
 </body>
 
