@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monte Fuji | StartTour</title>
+    <meta name="description" content="Explore a majestade do Monte Fuji com a StartTour. Pacotes de viagem, expedições, vulcão sagrado, lagos cristalinos e ryokans tradicionais.">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,7 +13,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- AOS (Animate On Scroll) -->
@@ -21,335 +22,623 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-    <!-- Estilos Customizados -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: #ef4444 !important;
+            background: rgba(0,0,0,0.5);
+            width: 48px !important;
+            height: 48px !important;
+            border-radius: 50%;
+            backdrop-filter: blur(4px);
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 20px !important;
+            font-weight: bold;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #ef4444 !important;
+            width: 24px !important;
+            border-radius: 999px !important;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #dc2626;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b91c1c;
+        }
+    </style>
 </head>
 
-<body class="bg-slate-950 text-white font-['Poppins'] overflow-x-hidden">
+<body class="bg-slate-950 text-white overflow-x-hidden font-['Poppins'] relative">
 
+    <!-- Particles Background Canvas container -->
     <div id="particles-js" class="fixed inset-0 pointer-events-none z-0"></div>
 
-    <!-- ================= NAVBAR ================= -->
-    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/30 border-b border-white/10">
-        <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-5">
-            <a href="index.html" class="flex items-center gap-3">
-                <i class="fa-solid fa-torii-gate text-red-500 text-3xl"></i>
-                <h1 class="text-3xl font-bold">
+    <!-- ========================= NAVBAR ========================= -->
+    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/40 border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-8 py-4">
+            <a href="#" class="flex items-center gap-3 group">
+                <i class="fa-solid fa-torii-gate text-red-500 text-3xl group-hover:rotate-12 transition-transform duration-300"></i>
+                <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">
                     Start<span class="text-red-500">Tour</span>
                 </h1>
             </a>
 
-            <ul class="hidden md:flex gap-8 text-lg font-medium">
-                <li><a href="index.html" class="hover:text-red-500 transition">Início</a></li>
-                <li><a href="#sobre" class="hover:text-red-500 transition">Sobre</a></li>
-                <li><a href="#experiencias" class="hover:text-red-500 transition">Experiências</a></li>
-                <li><a href="#pacotes" class="hover:text-red-500 transition">Pacotes</a></li>
-                <li><a href="#galeria" class="hover:text-red-500 transition">Galeria</a></li>
+            <ul class="hidden lg:flex items-center gap-8 text-base font-medium">
+                <li><a href="index.html" class="hover:text-red-500 transition duration-200">Início</a></li>
+                <li><a href="#sobre" class="hover:text-red-500 transition duration-200">Sobre</a></li>
+                <li><a href="#atracoes" class="hover:text-red-500 transition duration-200">Atrações</a></li>
+                <li><a href="#pacotes" class="hover:text-red-500 transition duration-200">Pacotes</a></li>
+                <li><a href="#galeria" class="hover:text-red-500 transition duration-200">Galeria</a></li>
             </ul>
 
-            <a href="#pacotes">
-                <button class="bg-red-600 px-6 py-3 rounded-full font-semibold hover:bg-red-700 hover:scale-105 transition duration-300 shadow-lg shadow-red-600/30">
-                    Reservar
-                </button>
-            </a>
+            <div class="flex items-center gap-4">
+                <a href="#pacotes" class="bg-red-600 hover:bg-red-700 hover:scale-105 active:scale-95 transition duration-300 px-6 py-2.5 rounded-full font-semibold text-sm md:text-base shadow-lg shadow-red-600/30 inline-flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-check text-sm"></i>
+                    Reservar Agora
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!-- ================= HERO ================= -->
-    <header class="relative h-screen flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=1920&q=80" alt="Monte Fuji Banner" class="absolute w-full h-full object-cover brightness-50">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-slate-950"></div>
+    <!-- ========================= HERO ========================= -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=2000&q=80"
+            alt="Monte Fuji com Neve e Sakura" class="absolute inset-0 w-full h-full object-cover brightness-50 scale-105 animate-pulse" style="animation-duration: 10s;">
 
-        <div class="relative text-center max-w-5xl px-5 z-10">
-            <span data-aos="fade-down" class="bg-red-500/20 text-red-400 border border-red-500/40 text-sm font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-6 inline-block">
-                Patrimônio Mundial da UNESCO
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-slate-950"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl py-12">
+            <span data-aos="fade-down" class="inline-block bg-red-500/20 text-red-400 border border-red-500/40 px-5 py-2 rounded-full uppercase tracking-[4px] text-xs md:text-sm font-semibold mb-6">
+                <i class="fa-solid fa-mountain mr-2"></i> Patrimônio Mundial da UNESCO • Japão
             </span>
-            <h1 data-aos="fade-up" class="text-7xl md:text-8xl font-extrabold tracking-tight">
-                MONTE FUJI
+
+            <h1 data-aos="fade-up" class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight drop-shadow-2xl">
+                MONTE <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-400 to-red-600">FUJI</span>
             </h1>
-            <p data-aos="fade-up" data-aos-delay="300" class="mt-8 text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-                Contemple a montanha mais sagrada e icônica do Japão, cercada por lagos cristalinos e paisagens de tirar o fôlego.
+
+            <p data-aos="fade-up" data-aos-delay="200" class="mt-8 text-lg sm:text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-light">
+                Contemple a montanha mais sagrada e emblemática do Japão. Descubra paisagens vulcânicas, lagos de águas cristalinas e santuários milenares.
             </p>
-            <div data-aos="zoom-in" data-aos-delay="700" class="mt-12">
-                <a href="#pacotes">
-                    <button class="bg-red-600 px-10 py-4 rounded-full text-lg font-bold hover:bg-red-700 hover:scale-105 transition duration-300 shadow-xl shadow-red-600/40">
-                        Ver Excursões
-                    </button>
+
+            <div class="mt-10 flex flex-wrap justify-center gap-5" data-aos="zoom-in" data-aos-delay="400">
+                <a href="#pacotes" class="bg-red-600 hover:bg-red-700 hover:scale-105 transition duration-300 px-9 py-4 rounded-full font-bold text-lg shadow-xl shadow-red-600/40 inline-flex items-center gap-3">
+                    <i class="fa-solid fa-compass"></i> Ver Roteiros
+                </a>
+
+                <a href="#galeria" class="glass hover:bg-white/10 hover:border-white/30 hover:scale-105 transition duration-300 px-9 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3">
+                    <i class="fa-solid fa-images"></i> Explorar Fotos
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- ================= SOBRE ================= -->
+    <!-- ========================= SOBRE ========================= -->
     <section id="sobre" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-16 items-center">
-            <div data-aos="fade-right">
-                <img src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=900&q=80" alt="Monte Fuji e Pagode Chureito" class="rounded-3xl shadow-2xl border border-white/10 w-full object-cover">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 grid lg:grid-cols-2 gap-16 items-center">
+
+            <div data-aos="fade-right" class="relative">
+                <div class="absolute -top-4 -left-4 w-72 h-72 bg-red-600/20 rounded-full blur-3xl -z-10"></div>
+                <img src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1000&q=80"
+                    alt="Monte Fuji e Pagode Chureito" class="rounded-3xl shadow-2xl border border-white/10 w-full h-[520px] object-cover hover:scale-[1.02] transition duration-500">
             </div>
 
             <div data-aos="fade-left">
-                <span class="bg-red-500/20 text-red-500 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-red-500/30">
-                    Símbolo Nacional
+                <span class="inline-block bg-red-600/20 text-red-400 border border-red-500/30 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest">
+                    Símbolo Sagrado do Japão
                 </span>
-                <h2 class="text-4xl md:text-5xl font-bold mt-6">
-                    A Majestade Sagrada do Japão
+
+                <h2 class="text-4xl sm:text-5xl font-extrabold mt-6 leading-tight">
+                    A Majestade do <span class="text-red-500">Fujisan</span>
                 </h2>
-                <p class="mt-8 text-gray-300 leading-relaxed text-lg">
-                    Com 3.776 metros de altitude, o Monte Fuji (Fujisan) não é apenas o ponto mais alto do país, mas também um vulcão ativo e um local sagrado venerado há séculos por artistas, poetas e peregrinos.
-                </p>
-                <p class="mt-6 text-gray-300 leading-relaxed text-lg">
-                    Localizado a cerca de 100 km a sudoeste de Tóquio, na divisa entre as províncias de Yamanashi e Shizuoka, a região dos Cinco Lagos do Fuji (Fujigoko) oferece visões espetaculares da montanha durante todas as estações do ano.
+
+                <p class="mt-6 text-gray-300 leading-relaxed text-base sm:text-lg">
+                    O Monte Fuji (Fujisan) é um vulcão ativo situado a cerca de 100 km a sudoeste de Tóquio. Considerado uma das três montanhas sagradas do Japão, atrai peregrinos, fotógrafos e viajantes do mundo inteiro há séculos.
                 </p>
 
+                <p class="mt-4 text-gray-300 leading-relaxed text-base sm:text-lg">
+                    A região ao seu redor, incluindo a famosa área dos Cinco Lagos do Fuji (Fujigoko), oferece vistas deslumbrantes que mudam drasticamente com as estações: cerejeiras na primavera, verde vibrante no verão, folhagem avermelhada no outono e picos cobertos de neve no inverno.
+                </p>
+
+                <!-- Statistics counter cards -->
                 <div class="grid grid-cols-2 gap-6 mt-10">
-                    <div class="glass p-6 rounded-2xl text-center border border-white/10 bg-white/5 backdrop-blur-md">
-                        <h3 class="counter text-5xl font-bold text-red-500" data-target="3776">0</h3>
-                        <p class="mt-3 text-gray-300 font-medium">Metros de Altitude</p>
+                    <div class="glass-card p-6 rounded-2xl text-center border border-white/10 shadow-xl hover:border-red-500/40 transition">
+                        <h3 class="counter text-4xl sm:text-5xl font-black text-red-500" data-target="3776">0</h3>
+                        <p class="mt-2 text-gray-300 text-sm sm:text-base font-medium">Metros de Altitude</p>
                     </div>
-                    <div class="glass p-6 rounded-2xl text-center border border-white/10 bg-white/5 backdrop-blur-md">
-                        <h3 class="counter text-5xl font-bold text-red-500" data-target="5">0</h3>
-                        <p class="mt-3 text-gray-300 font-medium">Lagos ao Redor</p>
+
+                    <div class="glass-card p-6 rounded-2xl text-center border border-white/10 shadow-xl hover:border-red-500/40 transition">
+                        <h3 class="counter text-4xl sm:text-5xl font-black text-red-500" data-target="5">0</h3>
+                        <p class="mt-2 text-gray-300 text-sm sm:text-base font-medium">Lagos Sagrados</p>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- ================= EXPERIÊNCIAS ================= -->
-    <section id="experiencias" class="py-20 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <h2 data-aos="fade-up" class="text-center text-4xl md:text-5xl font-bold mb-16">
-                Principais <span class="text-red-500">Experiências</span>
-            </h2>
+    <!-- ========================= ATRAÇÕES ========================= -->
+    <section id="atracoes" class="py-24 relative z-10 bg-slate-900/60 backdrop-blur-sm border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 px-8">
-                <!-- Card 1 -->
-                <div data-aos="fade-up" data-aos-delay="100" class="glass rounded-3xl overflow-hidden group hover:-translate-y-2 transition duration-300 border border-white/10 bg-white/5 backdrop-blur-md">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFG5IpfEK4TMMm0bqqdFw_IkG4w0Uix1kRH07PY_q4bg&s=10" alt="Pagode Chureito" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 left-4 bg-red-600/80 backdrop-blur-md px-4 py-1 rounded-full text-xs font-semibold">Fotografia</span>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3">Pagode Chureito</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                            A clássica vista de cartão-postal japonesa: um pagode de cinco andares alinhado perfeitamente com o Monte Fuji ao fundo.
-                        </p>
-                        <a href="#pacotes" class="text-red-500 font-semibold inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                            Saiba mais <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div data-aos="fade-up" data-aos-delay="200" class="glass rounded-3xl overflow-hidden group hover:-translate-y-2 transition duration-300 border border-white/10 bg-white/5 backdrop-blur-md">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80" alt="Lago Kawaguchiko" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 left-4 bg-red-600/80 backdrop-blur-md px-4 py-1 rounded-full text-xs font-semibold">Passeio</span>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3">Lago Kawaguchiko</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                            O mais acessível dos cinco lagos, repleto de hotéis de águas termais (onsens), museus e passeios de barco relaxantes.
-                        </p>
-                        <a href="#pacotes" class="text-red-500 font-semibold inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                            Saiba mais <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div data-aos="fade-up" data-aos-delay="300" class="glass rounded-3xl overflow-hidden group hover:-translate-y-2 transition duration-300 border border-white/10 bg-white/5 backdrop-blur-md">
-                    <div class="relative overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="Hakone Cable Car" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-4 left-4 bg-red-600/80 backdrop-blur-md px-4 py-1 rounded-full text-xs font-semibold">Aventura</span>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold mb-3">Teleférico de Hakone</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                            Sobrevoe o vale vulcânico de Owakudani com vistas incríveis do Fuji enquanto saboreia os famosos ovos pretos cozidos em águas sulfurosas.
-                        </p>
-                        <a href="#pacotes" class="text-red-500 font-semibold inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                            Saiba mais <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================= PACOTES ================= -->
-    <section id="pacotes" class="py-24 bg-slate-900/50 relative z-10">
-        <div class="max-w-7xl mx-auto px-8">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                <span class="bg-red-500/20 text-red-500 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-red-500/30">
-                    Opções de Roteiro
+                <span class="bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+                    Roteiros Inesquecíveis
                 </span>
-                <h2 class="text-4xl md:text-5xl font-bold mt-4">
+                <h2 class="text-4xl sm:text-5xl font-extrabold mt-4">
+                    Principais <span class="text-red-500">Atrações</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-base sm:text-lg">
+                    Conheça os pontos turísticos mais emblemáticos ao redor do vulcão mais icônico da Ásia.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+                <!-- Atração 1: Pagode Chureito -->
+                <div data-aos="fade-up" data-aos-delay="100" class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1528164344705-475426879e0d?auto=format&fit=crop&w=800&q=80"
+                                alt="Pagode Chureito" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-red-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Fotografia</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-red-400 transition">Pagode Chureito</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                A clássica vista de cartão-postal: um pagode vermelho de cinco andares alinhado perfeitamente com o cume nevado do Monte Fuji.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atração 2: Lago Kawaguchiko -->
+                <div data-aos="fade-up" data-aos-delay="200" class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=800&q=80"
+                                alt="Lago Kawaguchiko" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-red-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Passeio & Onsen</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-red-400 transition">Lago Kawaguchiko</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                O mais famoso dos cinco lagos. Oferece passeios de barco, hotéis com águas termais (*onsen*), parques floridos e museus de arte.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atração 3: Hakone & Owakudani -->
+                <div data-aos="fade-up" data-aos-delay="300" class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80"
+                                alt="Teleférico de Hakone" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-red-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Aventura</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-red-400 transition">Teleférico de Hakone</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Voe sobre o vale vulcânico de Owakudani e saboreie os famosos ovos pretos cozidos em águas termais com vista panorâmica do vulcão.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atração 4: 5ª Estação do Fuji -->
+                <div data-aos="fade-up" data-aos-delay="400" class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80"
+                                alt="5ª Estação do Fuji" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-red-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Subida</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-red-400 transition">5ª Estação Subaru</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                A 2.300 metros de altitude, é o ponto de partida mais popular para os escaladores e oferece lojas de souvenirs e vistas incríveis das nuvens.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atração 5: Oshino Hakkai -->
+                <div data-aos="fade-up" data-aos-delay="500" class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=800&q=80"
+                                alt="Vila Oshino Hakkai" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-red-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Cultura</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-red-400 transition">Vila Oshino Hakkai</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Um vilarejo pitoresco com 8 nascentes puras alimentadas pelo derretimento da neve do Monte Fuji através de camadas de lava filtrada.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atração 6: Caverna de Gelo Narusawa -->
+                <div data-aos="fade-up" data-aos-delay="600" class="glass-card rounded-3xl overflow-hidden hover:-translate-y-2 transition duration-300 border border-white/10 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden h-60">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+                                alt="Caverna de Gelo Narusawa" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <span class="absolute top-4 left-4 bg-red-600/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">Especiais</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-red-400 transition">Caverna de Gelo Narusawa</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Formada por uma erupção há mais de 1.100 anos, esta caverna mantém formações de gelo naturais mesmo no auge do verão japonês.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================= PACOTES ========================= -->
+    <section id="pacotes" class="py-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
+
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+                    Experiências sob medida
+                </span>
+                <h2 class="text-4xl sm:text-5xl font-extrabold mt-4">
                     Pacotes Monte <span class="text-red-500">Fuji</span>
                 </h2>
-                <p class="text-gray-400 mt-4 text-lg">
-                    Escolha entre passeios de um dia saindo de Tóquio ou estadias completas em Ryokans tradicionais.
+                <p class="text-gray-400 mt-4 text-base sm:text-lg">
+                    Escolha o roteiro ideal para sua viagem: de passeios expressos a estadias imersivas com fontes termais.
                 </p>
             </div>
 
-            <div class="grid lg:grid-cols-3 gap-8 items-center">
-                <!-- Pacote 1 -->
-                <div data-aos="fade-up" data-aos-delay="100" class="glass rounded-3xl p-8 border border-white/10 hover:border-red-500/50 transition duration-300 bg-white/5 backdrop-blur-md">
-                    <h3 class="text-2xl font-bold">Bate e Volta Express</h3>
-                    <p class="text-gray-400 text-sm mt-2">1 dia de excursão partindo de Tóquio.</p>
+            <div class="grid lg:grid-cols-3 gap-8 items-stretch">
 
-                    <div class="my-6">
-                        <span class="text-4xl font-extrabold">R$ 950</span>
-                        <span class="text-gray-400">/ pessoa</span>
+                <!-- Pacote 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="glass-card rounded-3xl p-8 border border-white/10 hover:border-red-500/40 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <span class="bg-red-500/20 text-red-400 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-red-500/30">Bate e Volta</span>
+                        <h3 class="text-2xl font-bold mt-5">Excursão Fuji Express</h3>
+                        <p class="text-gray-400 text-sm mt-2">1 dia de tour saindo de Tóquio com guia bilingue.</p>
+
+                        <div class="my-6">
+                            <span class="text-4xl font-extrabold text-white">R$ 950</span>
+                            <span class="text-gray-400 text-sm">/ pessoa</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-gray-300 text-sm mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Transporte de luxo saindo de Tóquio</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Visita à 5ª Estação do Fuji</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Almoço tradicional japonês incluso</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Parada fotográfica no Pagode Chureito</li>
+                        </ul>
                     </div>
 
-                    <ul class="space-y-4 mb-8 text-gray-300 text-sm">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Transporte Ida e Volta em Ônibus Luxury</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Guia Bilingüe (Português/Inglês)</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Parada na 5ª Estação do Fuji</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Almoço Típico Incluso</li>
-                    </ul>
-
-                    <button class="w-full py-4 border border-red-500 text-red-500 rounded-2xl font-bold hover:bg-red-600 hover:text-white transition">
+                    <button onclick="openBookingModal('Excursão Fuji Express')" class="w-full py-3.5 border border-red-500/80 text-red-400 hover:bg-red-600 hover:text-white rounded-2xl font-bold transition duration-300 text-center">
                         Reservar Passeio
                     </button>
                 </div>
 
                 <!-- Pacote 2 (Destaque) -->
-                <div data-aos="fade-up" data-aos-delay="200" class="glass rounded-3xl p-8 border-2 border-red-500 relative bg-gradient-to-b from-red-950/40 to-slate-900/80 scale-105 shadow-2xl backdrop-blur-md">
-                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-md">
-                        Recomendado
-                    </span>
-
-                    <h3 class="text-2xl font-bold mt-2">Fuji & Onsen Experience</h3>
-                    <p class="text-gray-400 text-sm mt-2">2 dias / 1 noite em Ryokan tradicional.</p>
-
-                    <div class="my-6">
-                        <span class="text-4xl font-extrabold text-red-500">R$ 2.800</span>
-                        <span class="text-gray-400">/ pessoa</span>
+                <div data-aos="fade-up" data-aos-delay="200" class="glass-card rounded-3xl p-8 border-2 border-red-500 relative flex flex-col justify-between bg-gradient-to-b from-red-950/40 via-slate-900/90 to-slate-950 scale-105 shadow-2xl shadow-red-900/20">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg">
+                        Mais Popular
                     </div>
 
-                    <ul class="space-y-4 mb-8 text-gray-200 text-sm">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Hospedagem em Ryokan com Onsen Privativo</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Jantar Kaiseki (Alta Gastronomia)</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Passeio pelo Lago Kawaguchiko</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Ingressos para o Pagode Chureito</li>
-                    </ul>
+                    <div>
+                        <span class="bg-red-500 text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full">Fuji & Onsen VIP</span>
+                        <h3 class="text-2xl font-bold mt-5">Ryokan & Lakes Experience</h3>
+                        <p class="text-gray-300 text-sm mt-2">2 dias / 1 noite em resort tradicional com águas termais.</p>
 
-                    <button class="w-full py-4 bg-red-600 text-white rounded-2xl font-bold hover:bg-red-700 transition shadow-lg shadow-red-600/30">
+                        <div class="my-6">
+                            <span class="text-4xl font-extrabold text-red-500">R$ 2.800</span>
+                            <span class="text-gray-400 text-sm">/ pessoa</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-gray-200 text-sm mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Hospedagem em Ryokan 5 estrelas</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Jantar especial Kaiseki incluso</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Banho privado em Onsen com vista para o Fuji</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Cruzeiro de barco pelo Lago Kawaguchiko</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="openBookingModal('Ryokan & Lakes Experience')" class="w-full py-4 bg-red-600 hover:bg-red-700 text-white rounded-2xl font-bold transition duration-300 shadow-lg shadow-red-600/40 text-center">
                         Reservar Agora
                     </button>
                 </div>
 
                 <!-- Pacote 3 -->
-                <div data-aos="fade-up" data-aos-delay="300" class="glass rounded-3xl p-8 border border-white/10 hover:border-red-500/50 transition duration-300 bg-white/5 backdrop-blur-md">
-                    <h3 class="text-2xl font-bold">Expedição Escalada Fuji</h3>
-                    <p class="text-gray-400 text-sm mt-2">Para aventureiros (Julho a Setembro).</p>
+                <div data-aos="fade-up" data-aos-delay="300" class="glass-card rounded-3xl p-8 border border-white/10 hover:border-red-500/40 transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <span class="bg-red-500/20 text-red-400 text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-red-500/30">Expedição Cume</span>
+                        <h3 class="text-2xl font-bold mt-5">Escalada Fuji Summit</h3>
+                        <p class="text-gray-400 text-sm mt-2">2 dias de aventura guiada para assistir ao nascer do sol no cume.</p>
 
-                    <div class="my-6">
-                        <span class="text-4xl font-extrabold">R$ 3.500</span>
-                        <span class="text-gray-400">/ pessoa</span>
+                        <div class="my-6">
+                            <span class="text-4xl font-extrabold text-white">R$ 3.500</span>
+                            <span class="text-gray-400 text-sm">/ pessoa</span>
+                        </div>
+
+                        <ul class="space-y-3.5 text-gray-300 text-sm mb-8">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Guia especializado em alpinismo</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Pernoite em cabana de montanha na 8ª Estação</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Certificado oficial de conquista do cume</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-red-500"></i> Equipamento e kit de oxigênio de apoio</li>
+                        </ul>
                     </div>
 
-                    <ul class="space-y-4 mb-8 text-gray-300 text-sm">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Guia Especializado em Trilha</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Pernoite em Cabana na Montanha</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Assistência ao Nascer do Sol no Cume</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-red-500"></i> Certificado de Conclusão da Escalada</li>
-                    </ul>
-
-                    <button class="w-full py-4 border border-red-500 text-red-500 rounded-2xl font-bold hover:bg-red-600 hover:text-white transition">
+                    <button onclick="openBookingModal('Escalada Fuji Summit')" class="w-full py-3.5 border border-red-500/80 text-red-400 hover:bg-red-600 hover:text-white rounded-2xl font-bold transition duration-300 text-center">
                         Reservar Escalada
                     </button>
                 </div>
+
             </div>
+
         </div>
     </section>
 
-    <!-- ================= GALERIA (SWIPER) ================= -->
-    <section id="galeria" class="py-24 relative z-10">
-        <div class="max-w-7xl mx-auto px-8">
-            <h2 data-aos="fade-up" class="text-center text-4xl md:text-5xl font-bold mb-16">
-                Galeria do <span class="text-red-500">Monte Fuji</span>
-            </h2>
+    <!-- ========================= GALERIA ========================= -->
+    <section id="galeria" class="py-24 relative z-10 bg-slate-900/60 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-8">
 
-            <div data-aos="zoom-in" class="swiper mySwiper rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+                    Inspiração Visual
+                </span>
+                <h2 class="text-4xl sm:text-5xl font-extrabold mt-4">
+                    Galeria do <span class="text-red-500">Monte Fuji</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-base sm:text-lg">
+                    Navegue por momentos inesquecíveis capturados por nossos clientes e viajantes ao redor do Japão.
+                </p>
+            </div>
+
+            <div class="swiper mySwiper rounded-3xl overflow-hidden shadow-2xl border border-white/10" data-aos="zoom-in">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide h-[500px]">
-                        <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover" alt="Monte Fuji">
+
+                    <div class="swiper-slide h-[380px] sm:h-[500px]">
+                        <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=1920&q=80"
+                            alt="Monte Fuji com flor de cerejeira" class="w-full h-full object-cover">
                     </div>
-                    <div class="swiper-slide h-[500px]">
-                        <img src="https://images.unsplash.com/photo-1528164344705-475426879e0d?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover" alt="Pagode Chureito">
+
+                    <div class="swiper-slide h-[380px] sm:h-[500px]">
+                        <img src="https://images.unsplash.com/photo-1528164344705-475426879e0d?auto=format&fit=crop&w=1920&q=80"
+                            alt="Pagode Chureito e Monte Fuji" class="w-full h-full object-cover">
                     </div>
-                    <div class="swiper-slide h-[500px]">
-                        <img src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1920&q=80" class="w-full h-full object-cover" alt="Lago Kawaguchiko">
+
+                    <div class="swiper-slide h-[380px] sm:h-[500px]">
+                        <img src="https://images.unsplash.com/photo-1578637387939-43c525550085?auto=format&fit=crop&w=1920&q=80"
+                            alt="Lago Kawaguchiko no Outono" class="w-full h-full object-cover">
                     </div>
+
                 </div>
 
-                <div class="swiper-button-next text-red-500"></div>
-                <div class="swiper-button-prev text-red-500"></div>
                 <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
+
         </div>
     </section>
 
-    <!-- ================= RODAPÉ ================= -->
-    <footer class="bg-black/60 border-t border-white/10 py-12 relative z-10">
-        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-4 gap-8 mb-12">
+    <!-- ========================= FOOTER ========================= -->
+    <footer class="border-t border-white/10 py-12 relative z-10 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 grid md:grid-cols-4 gap-8 mb-12">
+
             <div>
-                <a href="index.html" class="flex items-center gap-3 mb-4">
+                <a href="#" class="flex items-center gap-3 mb-4">
                     <i class="fa-solid fa-torii-gate text-red-500 text-2xl"></i>
-                    <h2 class="text-2xl font-bold">Start<span class="text-red-500">Tour</span></h2>
+                    <span class="text-2xl font-bold">Start<span class="text-red-500">Tour</span></span>
                 </a>
                 <p class="text-gray-400 text-sm leading-relaxed">
-                    Sua agência especialista em transformar sonhos de viagem ao Japão em realidade.
+                    Sua agência especialista em transformar sonhos de viagem ao Japão em experiências inesquecíveis.
                 </p>
             </div>
 
             <div>
-                <h4 class="font-bold text-lg mb-4">Navegação</h4>
+                <h4 class="font-bold text-lg mb-4 text-white">Navegação</h4>
                 <ul class="space-y-2 text-gray-400 text-sm">
-                    <li><a href="#sobre" class="hover:text-red-500 transition">Sobre Nós</a></li>
-                    <li><a href="#experiencias" class="hover:text-red-500 transition">Experiências</a></li>
-                    <li><a href="#pacotes" class="hover:text-red-500 transition">Pacotes</a></li>
-                    <li><a href="#galeria" class="hover:text-red-500 transition">Galeria</a></li>
+                    <li><a href="#sobre" class="hover:text-red-500 transition">Sobre o Monte Fuji</a></li>
+                    <li><a href="#atracoes" class="hover:text-red-500 transition">Atrações Principais</a></li>
+                    <li><a href="#pacotes" class="hover:text-red-500 transition">Pacotes & Preços</a></li>
+                    <li><a href="#galeria" class="hover:text-red-500 transition">Galeria de Fotos</a></li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="font-bold text-lg mb-4">Contato</h4>
+                <h4 class="font-bold text-lg mb-4 text-white">Contato</h4>
                 <ul class="space-y-2 text-gray-400 text-sm">
                     <li><i class="fa-solid fa-envelope text-red-500 mr-2"></i> contato@starttour.com</li>
                     <li><i class="fa-solid fa-phone text-red-500 mr-2"></i> +55 (11) 99999-9999</li>
-                    <li><i class="fa-solid fa-location-dot text-red-500 mr-2"></i> São Paulo - SP</li>
+                    <li><i class="fa-solid fa-location-dot text-red-500 mr-2"></i> São Paulo - SP, Brasil</li>
                 </ul>
             </div>
 
             <div>
-                <h4 class="font-bold text-lg mb-4">Redes Sociais</h4>
+                <h4 class="font-bold text-lg mb-4 text-white">Redes Sociais</h4>
                 <div class="flex gap-4 text-xl">
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-red-600 transition"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-red-600 transition"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-red-600 transition"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-red-600 hover:border-red-600 transition"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
+
         </div>
 
-        <div class="text-center text-gray-500 text-sm border-t border-white/5 pt-8">
+        <div class="text-center text-gray-500 text-sm border-t border-white/5 pt-8 max-w-7xl mx-auto px-6">
             <p>&copy; StartTour. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <!-- Scripts Externos -->
+    <!-- Reservation Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden items-center justify-center p-4">
+        <div class="glass-card max-w-lg w-full p-8 rounded-3xl border border-white/20 relative shadow-2xl">
+            <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white text-2xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-2xl font-bold text-white mb-2" id="modalPackageName">Reserva de Pacote</h3>
+            <p class="text-gray-300 text-sm mb-6">Preencha seus dados para solicitar o orçamento e disponibilidade.</p>
+
+            <form onsubmit="handleReservation(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1 uppercase">Nome Completo</label>
+                    <input type="text" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 placeholder-gray-500" placeholder="Seu nome">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1 uppercase">E-mail</label>
+                    <input type="email" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 placeholder-gray-500" placeholder="seuemail@exemplo.com">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-300 mb-1 uppercase">Telefone / WhatsApp</label>
+                    <input type="tel" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-500 placeholder-gray-500" placeholder="(11) 99999-9999">
+                </div>
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-red-600/40 mt-4">
+                    Confirmar Solicitação
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+    <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Scripts Internos do Projeto -->
-    <script src="js/particles.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/chatbot.js"></script>
-    <script src="js/slider.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // AOS Init
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+
+            // Swiper Init
+            const swiper = new Swiper('.mySwiper', {
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+            // Particles.js Init
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS("particles-js", {
+                    "particles": {
+                        "number": { "value": 45, "density": { "enable": true, "value_area": 800 } },
+                        "color": { "value": "#ffffff" },
+                        "shape": { "type": "circle" },
+                        "opacity": { "value": 0.3, "random": true },
+                        "size": { "value": 3, "random": true },
+                        "line_linked": { "enable": false },
+                        "move": { "enable": true, "speed": 1.2, "direction": "bottom", "random": true, "straight": false, "out_mode": "out" }
+                    },
+                    "interactivity": { "events": { "onhover": { "enable": false } } },
+                    "retina_detect": true
+                });
+            }
+
+            // Animated Counters Script
+            const counters = document.querySelectorAll('.counter');
+            let animated = false;
+
+            window.addEventListener('scroll', () => {
+                const sobreSection = document.getElementById('sobre');
+                if (!sobreSection) return;
+
+                const sectionPos = sobreSection.getBoundingClientRect().top;
+                const screenPos = window.innerHeight;
+
+                if (sectionPos < screenPos && !animated) {
+                    animated = true;
+                    counters.forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += step;
+                            if (current < target) {
+                                counter.innerText = Math.ceil(current).toLocaleString('pt-BR');
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.innerText = target.toLocaleString('pt-BR');
+                            }
+                        };
+                        updateCounter();
+                    });
+                }
+            });
+        });
+
+        // Booking Modal functions
+        function openBookingModal(packageName) {
+            document.getElementById('modalPackageName').innerText = 'Reserva: ' + packageName;
+            document.getElementById('bookingModal').classList.remove('hidden');
+            document.getElementById('bookingModal').classList.add('flex');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+            document.getElementById('bookingModal').classList.remove('flex');
+        }
+
+        function handleReservation(e) {
+            e.preventDefault();
+            alert('Obrigado! Sua solicitação para o Monte Fuji foi enviada com sucesso. Nossa equipe entrará em contato em breve.');
+            closeBookingModal();
+        }
+    </script>
 
 </body>
 

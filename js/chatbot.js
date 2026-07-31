@@ -1,5 +1,5 @@
 /* ==========================================================
-   StartTour - chatbot.js (Versão Udify Integrado)
+   StartTour - chatbot.js
 ========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const chatWindow = document.getElementById("chatWindow");
 
     if (toggleChat && closeChat && chatWindow) {
-        // Abrir / Fechar a janela do chat ao clicar no botão flutuante
+        // Alterna exibição do chat ao clicar no botão
         toggleChat.addEventListener("click", () => {
             chatWindow.classList.toggle("hidden");
         });
 
-        // Fechar a janela ao clicar no X do cabeçalho
+        // Esconde o chat ao clicar no X
         closeChat.addEventListener("click", () => {
             chatWindow.classList.add("hidden");
         });
