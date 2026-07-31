@@ -509,7 +509,7 @@ textarea:focus {
 
 /* Garante que o vídeo fique fixo no fundo da tela toda */
 .video-background {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;

@@ -36,45 +36,49 @@
     <div id="particles-js" class="fixed inset-0 pointer-events-none z-0"></div>
 
     <!-- ================= NAVBAR ================= -->
-    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/30 border-b border-white/10">
+    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/30 border-b border-white/10" role="navigation" aria-label="Main Navigation">
         <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-5">
-            <a href="index.html" class="flex items-center gap-3">
-                <i class="fa-solid fa-torii-gate text-red-500 text-3xl"></i>
+            <a href="index.html" class="flex items-center gap-3" aria-label="TakumiTour - Home">
+                <i class="fa-solid fa-torii-gate text-red-500 text-3xl" aria-hidden="true"></i>
                 <h1 class="font-bold text-3xl tracking-widest">
                     Takumi<span class="text-red-500">Tour</span>
                 </h1>
             </a>
 
             <div class="flex items-center gap-4">
-                <button id="menuToggle"
+                <button id="menuToggle" aria-controls="mobileMenu" aria-expanded="false"
                     class="md:hidden text-white p-3 rounded-2xl border border-white/10 hover:bg-white/10 transition"
                     aria-label="Abrir menu">
-                    <i class="fa-solid fa-bars text-2xl"></i>
+                    <span class="sr-only">Abrir menu</span>
+                    <i class="fa-solid fa-bars text-2xl" aria-hidden="true"></i>
                 </button>
 
-                <ul class="hidden md:flex gap-8 text-lg">
-                    <li><a href="#" class="hover:text-red-500 transition">Início</a></li>
-                    <li><a href="#destinos" class="hover:text-red-500 transition">Destinos</a></li>
-                    <li><a href="#catalogo" class="hover:text-red-500 transition">Catálogo</a></li>
-                    <li><a href="#sobre" class="hover:text-red-500 transition">Sobre</a></li>
-                    <li><a href="#contato" class="hover:text-red-500 transition">Contato</a></li>
+                <ul class="hidden md:flex gap-8 text-lg" role="menubar">
+                    <li role="none"><a role="menuitem" href="#" class="hover:text-red-500 transition">Início</a></li>
+                    <li role="none"><a role="menuitem" href="#destinos" class="hover:text-red-500 transition">Destinos</a></li>
+                    <li role="none"><a role="menuitem" href="#catalogo" class="hover:text-red-500 transition">Catálogo</a></li>
+                    <li role="none"><a role="menuitem" href="#sobre" class="hover:text-red-500 transition">Sobre</a></li>
+                    <li role="none"><a role="menuitem" href="#contato" class="hover:text-red-500 transition">Contato</a></li>
                 </ul>
             </div>
 
-            <a href="#catalogo"
-                class="hidden md:inline-flex bg-red-600 px-6 py-3 rounded-full hover:bg-red-700 hover:scale-105 transition font-semibold">
-                Reservar
-            </a>
+            <div class="hidden md:flex items-center gap-3">
+                <a href="#catalogo" class="bg-red-600 px-6 py-3 rounded-full hover:bg-red-700 hover:scale-105 transition font-semibold">Reservar</a>
+                <a href="#login" class="px-4 py-2 rounded-full border border-white/10 hover:bg-white/5 transition font-medium">Login</a>
+                <a href="#signup" class="px-4 py-2 rounded-full border border-white/10 hover:bg-white/5 transition font-medium">Signup</a>
+            </div>
         </div>
 
-        <div id="mobileMenu" class="hidden md:hidden border-t border-white/10 bg-black/95 backdrop-blur-xl">
+        <div id="mobileMenu" class="hidden md:hidden border-t border-white/10 bg-black/95 backdrop-blur-xl" role="menu" aria-hidden="true">
             <div class="max-w-7xl mx-auto px-8 py-5 flex flex-col gap-4">
-                <a href="#" class="text-lg text-white hover:text-red-500 transition">Início</a>
-                <a href="#destinos" class="text-lg text-white hover:text-red-500 transition">Destinos</a>
-                <a href="#catalogo" class="text-lg text-white hover:text-red-500 transition">Catálogo</a>
-                <a href="#sobre" class="text-lg text-white hover:text-red-500 transition">Sobre</a>
-                <a href="#contato" class="text-lg text-white hover:text-red-500 transition">Contato</a>
-                <a href="#catalogo"
+                <a href="#" role="menuitem" class="text-lg text-white hover:text-red-500 transition">Início</a>
+                <a href="#destinos" role="menuitem" class="text-lg text-white hover:text-red-500 transition">Destinos</a>
+                <a href="#catalogo" role="menuitem" class="text-lg text-white hover:text-red-500 transition">Catálogo</a>
+                <a href="#sobre" role="menuitem" class="text-lg text-white hover:text-red-500 transition">Sobre</a>
+                <a href="#contato" role="menuitem" class="text-lg text-white hover:text-red-500 transition">Contato</a>
+                <a href="#login" role="menuitem" class="text-lg text-white hover:text-red-500 transition">Login</a>
+                <a href="#signup" role="menuitem" class="text-lg text-white hover:text-red-500 transition">Signup</a>
+                <a href="#catalogo" role="menuitem"
                     class="bg-red-600 px-6 py-3 rounded-full hover:bg-red-700 transition font-semibold text-center">
                     Reservar
                 </a>
@@ -205,7 +209,7 @@
                             <p class="text-gray-300 text-sm mb-6">Neve de alta qualidade, estações de esqui lendárias,
                                 gastronomia e paisagens alpinas.</p>
                         </div>
-                        <a href="hokkaido.html"
+                        <a href="pages/hokkaido.html"
                             class="bg-red-600 hover:bg-red-700 text-center py-3 rounded-full font-semibold transition">
                             Descobrir
                         </a>
