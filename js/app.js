@@ -301,27 +301,6 @@ if (menuToggle && mobileMenu) {
 }
 
 // ======================
-        const rotateX = -(y - rect.height / 2) / 20;
-        const rotateY = (x - rect.width / 2) / 20;
-
-        card.style.transform =
-            `perspective(1000px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)
-             scale(1.03)`;
-
-    });
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform =
-            "perspective(1000px) rotateX(0) rotateY(0) scale(1)";
-
-    });
-
-});
-
-// ======================
 // Reveal manual
 // ======================
 

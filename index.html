@@ -86,11 +86,16 @@
     <!-- HERO SECTION -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <!-- Vídeo de Fundo com Fallback de Imagem -->
-        <video autoplay muted loop playsinline poster="assets/imagens/kyoto-banner.jpg"
-            class="absolute inset-0 w-full h-full object-cover brightness-50 z-0">
-            <source src="video/wallpaper.mp4" type="video/mp4">
-            Seu navegador não suporta vídeos em HTML5.
-        </video>
+        <div class="video-background">
+            <video autoplay muted loop playsinline poster="imagem-de-capa.jpg">
+                <source src="assets/videos/wallpaper.mp4" type="video/mp4">
+                <source src="seu-video.webm" type="video/webm">
+                Seu navegador não suporta vídeos em HTML5.
+            </video>
+
+            <!-- Overlay escuro para dar leitura ao texto por cima (opcional) -->
+            <div class="video-overlay"></div>
+        </div>
 
         <!-- Overlay de Gradiente Escuro -->
         <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-slate-950 z-10 pointer-events-none">
@@ -472,11 +477,11 @@
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
             </div> -->
-            
+
             <!-- Corpo do Chat com iframe do Udify -->
             <div id="chatBody" class="w-full bg-red-600">
                 <iframe src="https://udify.app/chatbot/PRqDgu6MuKksEuB0" style="width: 100%; height: 500px;"
-                frameborder="0" allow="microphone">
+                    frameborder="0" allow="microphone">
                 </iframe>
             </div>
         </div>
