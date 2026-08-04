@@ -1,5 +1,5 @@
 /* ==========================================================
-   StartTour - chatbot.js
+   takumiTour - chatbot.js
 ========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
